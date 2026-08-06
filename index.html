@@ -696,16 +696,32 @@
   }
 
   /* Season overview: Gantt-style timeline */
-  .row-mist { background: var(--mist); }
 
   .gantt-wrap {
     background: #fff;
     border: 1px solid rgba(125,148,120,0.2);
     border-radius: 12px;
-    padding: 1.1rem 1.25rem 0.4rem 0;
+    margin-bottom: 2rem;
+  }
+  .gantt-header-wrap {
+    position: sticky;
+    top: var(--nav-h, 0px);
+    z-index: 10;
+    background: #fff;
+    border-radius: 12px 12px 0 0;
     overflow-x: auto;
     overflow-anchor: none;
-    margin-bottom: 2rem;
+    padding: 1.1rem 1.25rem 0 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .gantt-header-wrap::-webkit-scrollbar { display: none; }
+  .gantt-body-wrap {
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    overflow-x: auto;
+    overflow-anchor: none;
+    padding: 0 1.25rem 0.4rem 0;
   }
   .gantt-header-row, .gantt-row { display: grid; grid-template-columns: 160px 1fr; align-items: center; width: fit-content; min-width: 100%; }
   .gantt-header-row {
@@ -744,7 +760,6 @@
     font-weight: 600;
     box-shadow: none;
   }
-  .gantt-row.row-mist .gantt-label { background: var(--mist); }
 
   .gantt-months {
     display: grid;
@@ -762,7 +777,7 @@
   .gantt-track {
     position: absolute;
     inset: 0;
-    background: var(--mist);
+    background: transparent;
     border-radius: 12px;
   }
   .gantt-bar {
@@ -779,18 +794,6 @@
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
-  }
-  .gantt-bar::after {
-    content: "";
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 0 1px rgba(72,66,58,0.15);
   }
   .gantt-bar-label-outside {
     position: absolute;
@@ -1130,10 +1133,13 @@
   <!-- Blomstringstid FIRST -->
   <p class="section-title">Blomstring – sæsonoverblik</p>
   <div class="gantt-wrap" id="bloomGantt">
+    <div class="gantt-header-wrap">
     <div class="gantt-header-row">
       <div class="gantt-label-col">Plante</div>
       <div class="gantt-months" style="min-width:490px; grid-template-columns:repeat(7,1fr);"><span class="gantt-month">Apr</span><span class="gantt-month">Maj</span><span class="gantt-month">Jun</span><span class="gantt-month">Jul</span><span class="gantt-month">Aug</span><span class="gantt-month">Sep</span><span class="gantt-month">Okt</span></div>
     </div>
+    </div>
+    <div class="gantt-body-wrap">
     <div class="gantt-row" data-latin="Fritillaria meleagris">
       <div class="gantt-label">Vibeæg</div>
       <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
@@ -1221,6 +1227,7 @@
     <div class="gantt-row row-mist" data-latin="Daucus carota">
       <div class="gantt-label">Vild gulerod</div>
       <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    </div>
     </div>
   </div>
 
@@ -1342,10 +1349,13 @@
   <!-- Høstoversigt FIRST -->
   <p class="section-title">Høst – sæsonoverblik</p>
   <div class="gantt-wrap" id="harvestGantt">
+    <div class="gantt-header-wrap">
     <div class="gantt-header-row">
       <div class="gantt-label-col">Plante</div>
       <div class="gantt-months" style="min-width:560px; grid-template-columns:repeat(8,1fr);"><span class="gantt-month">Maj</span><span class="gantt-month">Jun</span><span class="gantt-month">Jul</span><span class="gantt-month">Aug</span><span class="gantt-month">Sep</span><span class="gantt-month">Okt</span><span class="gantt-month">Nov</span><span class="gantt-month">Dec</span></div>
     </div>
+    </div>
+    <div class="gantt-body-wrap">
     <div class="gantt-row" data-latin="Allium schoenoprasum">
       <div class="gantt-label">Purløg</div>
       <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
@@ -1401,6 +1411,7 @@
     <div class="gantt-row row-mist" data-latin="Solanum tuberosum">
       <div class="gantt-label">Kartofler</div>
       <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
+    </div>
     </div>
   </div>
 
@@ -2362,6 +2373,37 @@ function renderGantt(wrapId, rangeKey) {
 
 renderGantt('bloomGantt', 'bloom');
 renderGantt('harvestGantt', 'harvest');
+
+// --- Season overview: keep month header visible while scrolling, in sync with sideways scroll ---
+function updateNavHeight() {
+  const nav = document.getElementById('mainNav');
+  if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+}
+updateNavHeight();
+window.addEventListener('resize', updateNavHeight);
+
+function syncGanttScroll(wrapId) {
+  const wrap = document.getElementById(wrapId);
+  if (!wrap) return;
+  const headerWrap = wrap.querySelector('.gantt-header-wrap');
+  const bodyWrap = wrap.querySelector('.gantt-body-wrap');
+  if (!headerWrap || !bodyWrap) return;
+  let syncing = false;
+  headerWrap.addEventListener('scroll', () => {
+    if (syncing) return;
+    syncing = true;
+    bodyWrap.scrollLeft = headerWrap.scrollLeft;
+    syncing = false;
+  });
+  bodyWrap.addEventListener('scroll', () => {
+    if (syncing) return;
+    syncing = true;
+    headerWrap.scrollLeft = bodyWrap.scrollLeft;
+    syncing = false;
+  });
+}
+syncGanttScroll('bloomGantt');
+syncGanttScroll('harvestGantt');
 
 // --- Planted tracker ---
 const PLANTED_KEY = 'snedkerkrogen_plantet';
