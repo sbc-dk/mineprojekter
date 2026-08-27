@@ -746,11 +746,9 @@
     padding: 0.4rem 0;
     border-bottom: 1px solid rgba(140,133,119,0.12);
     cursor: pointer;
-    transition: background 0.12s;
   }
   .gantt-row:last-child { border-bottom: none; }
-  .gantt-row:hover { background: var(--sage-light); }
-  .gantt-row:hover .gantt-label { background: var(--sage-light); }
+  .gantt-row:hover .gantt-bar { box-shadow: 0 4px 10px rgba(56,50,42,0.25); }
 
   .gantt-label-col, .gantt-label {
     position: sticky;
@@ -807,6 +805,7 @@
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
+    transition: box-shadow 0.18s;
   }
   .gantt-bar-label-outside {
     position: absolute;
