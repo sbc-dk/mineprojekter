@@ -2444,17 +2444,20 @@ function renderGantt(wrapId, rangeKey) {
     bar.className = 'gantt-bar ' + dotClass;
     bar.style.left = leftPct + '%';
     bar.style.width = widthPct + '%';
+    bar.textContent = rangeText;
+    trackWrap.appendChild(bar);
 
-    if (widthPct >= 17) {
-      bar.textContent = rangeText;
-    } else {
+    // Measure whether the label actually fits once the bar has real, rendered
+    // width - a fixed percentage cutoff doesn't account for short labels
+    // (e.g. a single month like "Jul") fitting fine in a narrow bar.
+    if (bar.scrollWidth > bar.clientWidth + 1) {
+      bar.textContent = '';
       const outside = document.createElement('span');
       outside.className = 'gantt-bar-label-outside';
       outside.textContent = rangeText;
       outside.style.left = 'calc(' + (leftPct + widthPct) + '% + 10px)';
       trackWrap.appendChild(outside);
     }
-    trackWrap.appendChild(bar);
   });
 }
 
