@@ -1005,34 +1005,29 @@
   /* Filter toggles */
   .filter-bar {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.6rem;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 1.25rem;
   }
 
   .filter-group {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.6rem;
   }
 
   .filter-group-label {
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--dusk);
-    margin-right: 0.2rem;
-    white-space: nowrap;
+    display: block;
+    font-family: 'Work Sans', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--soil);
   }
 
-  .filter-sep {
-    width: 1px;
-    height: 20px;
-    background: var(--sage-light);
-    margin: 0 0.4rem;
-    align-self: center;
+  .filter-group-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
   }
 
   .ftoggle {
@@ -1134,8 +1129,7 @@
     .grid { grid-template-columns: 1fr; gap: 0.75rem; }
     .card { padding: 1rem; }
 
-    .filter-bar { gap: 0.4rem 0.5rem; margin-bottom: 1rem; }
-    .filter-sep { display: none; }
+    .filter-bar { gap: 0.85rem; margin-bottom: 1rem; }
     .ftoggle { font-size: 0.62rem; padding: 0.3rem 0.6rem; }
 
     .section-header-row { flex-direction: column; align-items: flex-start; gap: 0; }
@@ -1319,38 +1313,44 @@
   <div class="filter-bar" id="filterBar">
     <div class="filter-group">
       <span class="filter-group-label">Type</span>
-      <button class="ftoggle type-stauder" data-filter="type" data-value="Stauder">Stauder</button>
-      <button class="ftoggle type-grass"   data-filter="type" data-value="Prydgræs">Prydgræs</button>
-      <button class="ftoggle type-bulb"    data-filter="type" data-value="Løg">Løg</button>
-      <button class="ftoggle type-rose"    data-filter="type" data-value="Rose">Roser</button>
-      <button class="ftoggle type-sommerblomst" data-filter="type" data-value="Sommerblomst">Sommerblomst</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle type-stauder" data-filter="type" data-value="Stauder">Stauder</button>
+        <button class="ftoggle type-grass"   data-filter="type" data-value="Prydgræs">Prydgræs</button>
+        <button class="ftoggle type-bulb"    data-filter="type" data-value="Løg">Løg</button>
+        <button class="ftoggle type-rose"    data-filter="type" data-value="Rose">Roser</button>
+        <button class="ftoggle type-sommerblomst" data-filter="type" data-value="Sommerblomst">Sommerblomst</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Sol</span>
-      <button class="ftoggle sun-full" data-filter="sun" data-value="Fuld sol">Fuld sol</button>
-      <button class="ftoggle sun-half" data-filter="sun" data-value="Sol/halvskygge">Halvskygge</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle sun-full" data-filter="sun" data-value="Fuld sol">Fuld sol</button>
+        <button class="ftoggle sun-half" data-filter="sun" data-value="Sol/halvskygge">Halvskygge</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Blomstring</span>
-      <button class="ftoggle" data-filter="bloom" data-value="foraar">Forår (apr–maj)</button>
-      <button class="ftoggle" data-filter="bloom" data-value="sommer">Sommer (jun–aug)</button>
-      <button class="ftoggle" data-filter="bloom" data-value="efteraar">Efterår (sep–okt)</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle" data-filter="bloom" data-value="foraar">Forår (apr–maj)</button>
+        <button class="ftoggle" data-filter="bloom" data-value="sommer">Sommer (jun–aug)</button>
+        <button class="ftoggle" data-filter="bloom" data-value="efteraar">Efterår (sep–okt)</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Egenskab</span>
-      <button class="ftoggle native-toggle" data-filter="native" data-value="true">Hjemmehørende</button>
-      <button class="ftoggle evergreen-toggle" data-filter="evergreen" data-value="true">Halvstedsegrøn</button>
-      <button class="ftoggle scent-toggle" data-filter="scent" data-value="true">Dufter</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle native-toggle" data-filter="native" data-value="true">Hjemmehørende</button>
+        <button class="ftoggle evergreen-toggle" data-filter="evergreen" data-value="true">Halvstedsegrøn</button>
+        <button class="ftoggle scent-toggle" data-filter="scent" data-value="true">Dufter</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Rådyr</span>
-      <button class="ftoggle deer-sjaelden-toggle" data-filter="deer" data-value="sjaelden">Sjældent spist</button>
-      <button class="ftoggle deer-nogengange-toggle" data-filter="deer" data-value="nogengange">Spises nogen gange</button>
-      <button class="ftoggle deer-ofte-toggle" data-filter="deer" data-value="ofte">Ofte spist</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle deer-sjaelden-toggle" data-filter="deer" data-value="sjaelden">Sjældent spist</button>
+        <button class="ftoggle deer-nogengange-toggle" data-filter="deer" data-value="nogengange">Spises nogen gange</button>
+        <button class="ftoggle deer-ofte-toggle" data-filter="deer" data-value="ofte">Ofte spist</button>
+      </div>
     </div>
   </div>
 
@@ -1515,29 +1515,34 @@
   <div class="filter-bar" id="kitchenFilterBar">
     <div class="filter-group">
       <span class="filter-group-label">Type</span>
-      <button class="ftoggle type-herb"  data-filter="type" data-value="Krydderurt">Krydderurt</button>
-      <button class="ftoggle type-veg"   data-filter="type" data-value="Grøntsag">Grøntsag</button>
-      <button class="ftoggle type-berry" data-filter="type" data-value="Bær">Bær</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle type-herb"  data-filter="type" data-value="Krydderurt">Krydderurt</button>
+        <button class="ftoggle type-veg"   data-filter="type" data-value="Grøntsag">Grøntsag</button>
+        <button class="ftoggle type-berry" data-filter="type" data-value="Bær">Bær</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Sol</span>
-      <button class="ftoggle sun-full" data-filter="sun" data-value="Fuld sol">Fuld sol</button>
-      <button class="ftoggle sun-half" data-filter="sun" data-value="Sol/halvskygge">Halvskygge</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle sun-full" data-filter="sun" data-value="Fuld sol">Fuld sol</button>
+        <button class="ftoggle sun-half" data-filter="sun" data-value="Sol/halvskygge">Halvskygge</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Høst</span>
-      <button class="ftoggle" data-filter="harvest" data-value="foraar">Forår (apr–maj)</button>
-      <button class="ftoggle" data-filter="harvest" data-value="sommer">Sommer (jun–aug)</button>
-      <button class="ftoggle" data-filter="harvest" data-value="efteraar">Efterår (sep–okt)</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle" data-filter="harvest" data-value="foraar">Forår (apr–maj)</button>
+        <button class="ftoggle" data-filter="harvest" data-value="sommer">Sommer (jun–aug)</button>
+        <button class="ftoggle" data-filter="harvest" data-value="efteraar">Efterår (sep–okt)</button>
+      </div>
     </div>
-    <div class="filter-sep"></div>
     <div class="filter-group">
       <span class="filter-group-label">Egenskab</span>
-      <button class="ftoggle perennial-toggle" data-filter="perennial" data-value="true">Flerårig</button>
-      <button class="ftoggle selfsow-toggle" data-filter="selfsow" data-value="true">Selvsår</button>
-      <button class="ftoggle pot-toggle" data-filter="pot" data-value="true">Krukkeegnet</button>
+      <div class="filter-group-tags">
+        <button class="ftoggle perennial-toggle" data-filter="perennial" data-value="true">Flerårig</button>
+        <button class="ftoggle selfsow-toggle" data-filter="selfsow" data-value="true">Selvsår</button>
+        <button class="ftoggle pot-toggle" data-filter="pot" data-value="true">Krukkeegnet</button>
+      </div>
     </div>
   </div>
 
