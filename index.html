@@ -1126,7 +1126,7 @@
   }
   .wheel-month-label-selected { font-size: 14px; font-weight: 700; fill: var(--terracotta-deep); }
 
-  .goremaal-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+  .goremaal-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
   .goremaal-col-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; }
   .goremaal-list { display: flex; flex-direction: column; gap: 0.5rem; }
   .goremaal-item {
@@ -1739,7 +1739,7 @@
 <section class="view" id="view-goremaal">
 <main>
   <p class="section-title">Gøremål i haven</p>
-  <p class="shopping-intro">Klik på en måned, eller drej hjulet med fingeren, for at se hvad der er tid til at så og høste i <strong id="goremaalMonthName">-</strong> - baseret på alle planterne i Plantebed og Køkkenhaven.</p>
+  <p class="shopping-intro">Klik på en måned, eller drej hjulet med fingeren, for at se hvad der er tid til at forspire, så og høste i <strong id="goremaalMonthName">-</strong> - baseret på alle planterne i Plantebed og Køkkenhaven.</p>
 
   <div class="season-wheel-wrap">
     <div class="season-wheel">
@@ -1748,6 +1748,10 @@
   </div>
 
   <div class="goremaal-columns">
+    <div class="goremaal-col">
+      <p class="goremaal-col-title">🪴 Forspir indendørs nu</p>
+      <div class="goremaal-list" id="goremaalPresproutList"></div>
+    </div>
     <div class="goremaal-col">
       <p class="goremaal-col-title">🌱 Så / plant ud nu</p>
       <div class="goremaal-list" id="goremaalSowList"></div>
@@ -2939,6 +2943,32 @@ const GOREMAAL_MONTHS_SHORT = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','
 const GOREMAAL_MONTHS_FULL  = ['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
 const GOREMAAL_SEASON_ALIASES = { 'forår': [2,3,4], 'efterår': [8,9,10] };
 
+// Hvornår planterne kan forspires (samme måneder som i "Forspiring" i plantevejledningen).
+const PRESPROUT_MONTHS = {
+  "Knautia macedonica": "Feb–apr",
+  "Foeniculum vulgare 'Purpureum'": "Apr",
+  "Eupatorium maculatum": "Feb–mar",
+  "Agastache rugosa 'Alabaster'": "Mar–apr",
+  "Valeriana officinalis": "Mar–apr",
+  "Verbena bonariensis 'Lollipop'": "Feb–mar",
+  "Digitalis purpurea 'Dalmatian Peach'": "Feb–apr",
+  "Antirrhinum majus": "Feb–mar",
+  "Verbascum nigrum": "Mar–apr",
+  "Myosotis sylvatica": "Jun–jul",
+  "Papaver orientale": "Mar–apr",
+  "Cosmos bipinnatus 'Cupcakes Blush'": "Mar–apr",
+  "Helianthus annuus 'White Sun F1'": "Apr",
+  "Alcea rosea": "Maj–jun",
+  "Allium schoenoprasum": "Mar",
+  "Thymus vulgaris": "Mar–apr",
+  "Petroselinum crispum": "Mar–apr",
+  "Solanum lycopersicum": "Mar–apr",
+  "Brassica oleracea var. sabellica": "Apr–maj",
+  "Brassica oleracea 'Caraflex'": "Mar–apr",
+  "Solanum tuberosum": "Mar–apr",
+  "Ocimum basilicum": "Mar–apr",
+};
+
 // Turns a Danish period string ("Jun–sep", "Maj", "Forår", "Forår/efterår" …)
 // into the set of month indices (0 = januar) it covers.
 function goremaalMonthIndices(text) {
@@ -2970,6 +3000,7 @@ function goremaalMonthIndices(text) {
 // Reads every plantekort (både faste og selvtilføjede) og fordeler dem på
 // måneder ud fra data-sow / data-harvest, så listen altid er frisk.
 function collectGoremaalData() {
+  const presprout = Array.from({ length: 12 }, () => []);
   const sow = Array.from({ length: 12 }, () => []);
   const harvest = Array.from({ length: 12 }, () => []);
   document.querySelectorAll('#plantGrid .card, #kitchenGrid .card').forEach(card => {
@@ -2977,10 +3008,13 @@ function collectGoremaalData() {
     if (!nameEl) return;
     const name = nameEl.textContent.trim();
     const listLabel = card.closest('#kitchenGrid') ? 'Køkkenhaven' : 'Plantebed';
+    const latinEl = card.querySelector('.latin');
+    const latin = latinEl ? latinEl.textContent.trim() : '';
+    goremaalMonthIndices(PRESPROUT_MONTHS[latin]).forEach(i => presprout[i].push({ name, listLabel }));
     goremaalMonthIndices(card.dataset.sow).forEach(i => sow[i].push({ name, listLabel }));
     goremaalMonthIndices(card.dataset.harvest).forEach(i => harvest[i].push({ name, listLabel }));
   });
-  return { sow, harvest };
+  return { presprout, sow, harvest };
 }
 
 function renderGoremaalList(containerId, entries, emptyText) {
@@ -2998,6 +3032,7 @@ function renderGoremaalList(containerId, entries, emptyText) {
 
 function renderGoremaalForMonth(monthIdx) {
   const data = collectGoremaalData();
+  renderGoremaalList('goremaalPresproutList', data.presprout[monthIdx], 'Intet at forspire i denne måned.');
   renderGoremaalList('goremaalSowList', data.sow[monthIdx], 'Intet at så eller plante ud i denne måned.');
   renderGoremaalList('goremaalHarvestList', data.harvest[monthIdx], 'Intet at høste i denne måned.');
   const monthNameEl = document.getElementById('goremaalMonthName');
