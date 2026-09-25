@@ -1054,17 +1054,7 @@
     border-color: var(--sage);
   }
 
-  .ftoggle.active.type-rose   { background: #ED8E8B; border-color: #ED8E8B; color: var(--soil); }
-  .ftoggle.active.type-sommerblomst { background: #F0B84B; border-color: #F0B84B; color: var(--soil); }
-  .ftoggle.active.type-grass  { background: #A5C1E9; border-color: #A5C1E9; color: var(--soil); }
-  .ftoggle.active.type-bulb   { background: #E9CDA5; border-color: #E9CDA5; color: var(--soil); }
-  .ftoggle.active.type-stauder{ background: #9DC19A; border-color: #9DC19A; color: var(--soil); }
-  .ftoggle.active.type-herb   { background: #6DAE87; border-color: #6DAE87; color: var(--soil); }
-  .ftoggle.active.type-veg    { background: #FCC88A; border-color: #FCC88A; color: var(--soil); }
-  .ftoggle.active.type-berry  { background: #E79F9C; border-color: #E79F9C; color: var(--soil); }
 
-  .ftoggle.active.sun-full  { background: var(--sage); border-color: var(--sage); }
-  .ftoggle.active.sun-half  { background: var(--sage-light); border-color: var(--sage-light); color: var(--sage-deep); }
 
   .card.hidden { display: none; }
 
@@ -1078,20 +1068,14 @@
 
   .tag.native { background: #E3EDF7; color: #5C82A8; }
 
-  .ftoggle.active.native-toggle { background: var(--sage); border-color: var(--sage); }
 
   .tag.evergreen { background: #E3EDF7; color: #5C82A8; }
-  .ftoggle.active.evergreen-toggle { background: #B99B5F; border-color: #B99B5F; color: #fff; }
   .tag.scent { background: #E3EDF7; color: #5C82A8; }
-  .ftoggle.active.scent-toggle { background: #6B3FA0; border-color: #6B3FA0; }
 
   .tag.deer-sjaelden   { background: #E3EDF7; color: #5C82A8; }
   .tag.deer-nogengange { background: #E3EDF7; color: #5C82A8; }
   .tag.deer-ofte       { background: #E3EDF7; color: #5C82A8; }
 
-  .ftoggle.active.deer-sjaelden-toggle   { background: #2A6E72; border-color: #2A6E72; color: #fff; }
-  .ftoggle.active.deer-nogengange-toggle { background: #9C4870; border-color: #9C4870; color: #fff; }
-  .ftoggle.active.deer-ofte-toggle       { background: #A34A2A; border-color: #A34A2A; color: #fff; }
 
   .guide-badge-pill.deer-sjaelden   { background: #D6EDEE; color: #2A6E72; }
   .guide-badge-pill.deer-nogengange { background: #F5DCE6; color: #9C4870; }
@@ -1103,9 +1087,6 @@
   .tag.selfsow   { background: #E3EDF7; color: #5C82A8; }
   .tag.pot       { background: #E3EDF7; color: #5C82A8; }
 
-  .ftoggle.active.perennial-toggle { background: #4E9964; border-color: #4E9964; color: #fff; }
-  .ftoggle.active.selfsow-toggle   { background: #C99A3F; border-color: #C99A3F; color: #fff; }
-  .ftoggle.active.pot-toggle       { background: #B06A46; border-color: #B06A46; color: #fff; }
 
   /* Gøremål - sæsonhjul */
   .season-wheel-wrap { display: flex; align-items: center; justify-content: center; margin: 1.25rem auto 2rem; max-width: 480px; }
@@ -2318,21 +2299,10 @@ function setupFilters(barId, gridId, rangeKey) {
     cards.forEach(card => {
       let show = true;
       for (const filter in activeFilters) {
-        const value = activeFilters[filter];
-        if (!value) continue;
-        if (filter === rangeKey) {
-          if (!bloomMatches(card.dataset[rangeKey], value)) show = false;
-        } else if (filter === 'sun') {
-          const cardSun = card.dataset.sun || '';
-          if (value === 'Fuld sol' && cardSun !== 'Fuld sol') show = false;
-          if (value === 'Sol/halvskygge' && cardSun !== 'Sol/halvskygge' && cardSun !== 'Halvskygge') show = false;
-        } else if (filter === 'type') {
-          if (card.dataset.type !== value) show = false;
-        } else if (filter === 'deer') {
-          if (!card.querySelector('.tag.deer-' + value)) show = false;
-        } else if (!card.querySelector('.tag.' + filter)) {
-          show = false;
-        }
+        const values = activeFilters[filter];
+        if (!values.size) continue;
+        // Inden for samme filtergruppe er det nok, at planten matcher ét af de valgte.
+        if (![...values].some(value => cardMatches(card, filter, value))) show = false;
       }
       card.classList.toggle('hidden', !show);
       if (show) visible++;
@@ -2348,21 +2318,33 @@ function setupFilters(barId, gridId, rangeKey) {
     nr.style.display = visible === 0 ? 'block' : 'none';
   }
 
+  function cardMatches(card, filter, value) {
+    let show = true;
+    if (filter === rangeKey) {
+      if (!bloomMatches(card.dataset[rangeKey], value)) show = false;
+    } else if (filter === 'sun') {
+      const cardSun = card.dataset.sun || '';
+      if (value === 'Fuld sol' && cardSun !== 'Fuld sol') show = false;
+      if (value === 'Sol/halvskygge' && cardSun !== 'Sol/halvskygge' && cardSun !== 'Halvskygge') show = false;
+    } else if (filter === 'type') {
+      if (card.dataset.type !== value) show = false;
+    } else if (filter === 'deer') {
+      if (!card.querySelector('.tag.deer-' + value)) show = false;
+    } else if (!card.querySelector('.tag.' + filter)) {
+      show = false;
+    }
+    return show;
+  }
+
   bar.querySelectorAll('.ftoggle').forEach(btn => {
     const filter = btn.dataset.filter;
-    activeFilters[filter] = null;
+    if (!activeFilters[filter]) activeFilters[filter] = new Set();
     btn.addEventListener('click', () => {
       const value = btn.dataset.value;
-      if (activeFilters[filter] === value) {
-        // Deactivate
-        activeFilters[filter] = null;
-        btn.classList.remove('active');
-      } else {
-        // Deactivate previous in same group
-        bar.querySelectorAll(`.ftoggle[data-filter="${filter}"]`).forEach(b => b.classList.remove('active'));
-        activeFilters[filter] = value;
-        btn.classList.add('active');
-      }
+      const values = activeFilters[filter];
+      if (values.has(value)) values.delete(value);
+      else values.add(value);
+      btn.classList.toggle('active', values.has(value));
       applyFilters();
     });
   });
