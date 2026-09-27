@@ -545,7 +545,11 @@
     padding: 1.5rem;
     box-shadow: 0 2px 14px rgba(72,66,58,0.06);
   }
-  .plot-facts { display: flex; flex-direction: column; gap: 1rem; }
+  .plot-plan-wrap { padding: 0.9rem; }
+  .plot-main, .plot-facts { display: flex; flex-direction: column; gap: 1rem; }
+  .plot-main { min-width: 0; }
+  .plot-beds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); column-gap: 1.5rem; }
+  .plot-beds-grid .plot-fact-row:last-child { border-bottom: 1px solid var(--mist); padding-bottom: 0.45rem; }
   .plot-fact-card { padding: 1.1rem 1.25rem; }
   .plot-fact-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
   .plot-fact-row {
@@ -1704,8 +1708,9 @@
   <p class="section-title">Grund</p>
   <p class="shopping-intro">Skitse over sommerhusgrunden ud fra opmålte sidelængder og luftfoto. Viser havens bede, træer og bygninger.</p>
   <div class="plot-layout">
+  <div class="plot-main">
   <div class="plot-plan-wrap">
-    <svg class="plot-plan-svg" viewBox="-7 -8.5 59 36" xmlns="http://www.w3.org/2000/svg">
+    <svg class="plot-plan-svg" viewBox="-6.3 -7.7 57.3 34.7" xmlns="http://www.w3.org/2000/svg">
       <polygon points="0,0 46.3,-6.9 50.2,17.2 -5.4,26.2" fill="var(--sage-light)" fill-opacity="0.55" stroke="var(--sage)" stroke-opacity="0.7" stroke-width="0.18" stroke-dasharray="0.8 0.6"/>
 
       <!-- Træer, bede, hyldeblomst og småbygninger - tegnet efter Simones skitse -->
@@ -1757,6 +1762,20 @@
       <text x="37" y="2.05" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="#fff" font-weight="400">Anneks</text>
     </svg>
   </div>
+    <div class="plot-fact-card plot-beds-card">
+      <p class="plot-fact-title">Bede</p>
+      <div class="plot-beds-grid">
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#F3D77A; border:1.5px solid #D7B24A;"></span> Solbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#9DAEC0; border:1.5px solid #6F8299;"></span> Skyggebed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#D46F6B; border:1.5px solid #B04E4B;"></span> Bærbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EFA66A; border:1.5px solid #D3843F;"></span> Kantbedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#93B6E8; border:1.5px solid #5F8FD1;"></span> Gavlbedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#92D4E6; border:1.5px solid #4FB2CC;"></span> Syrenhortensia</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#D2A8EA; border:1.5px solid #A874C9;"></span> Hjørnebedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EDA6A5;"></span> Klematis</span></div>
+      </div>
+    </div>
+  </div>
   <aside class="plot-facts">
     <div class="plot-fact-card">
       <p class="plot-fact-title">På grunden</p>
@@ -1768,22 +1787,10 @@
       <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch plot-plan-legend-swatch-line"></span> Grundskel</span></div>
     </div>
     <div class="plot-fact-card">
-      <p class="plot-fact-title">Bede</p>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#F3D77A; border:1.5px solid #D7B24A;"></span> Solbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#9DAEC0; border:1.5px solid #6F8299;"></span> Skyggebed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#D46F6B; border:1.5px solid #B04E4B;"></span> Bærbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EFA66A; border:1.5px solid #D3843F;"></span> Kantbedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#93B6E8; border:1.5px solid #5F8FD1;"></span> Gavlbedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#92D4E6; border:1.5px solid #4FB2CC;"></span> Syrenhortensia</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#D2A8EA; border:1.5px solid #A874C9;"></span> Hjørnebedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EDA6A5;"></span> Klematis</span><strong>montana Rubens</strong></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#F4E8B5; border:1.5px solid #D6BE72;"></span> Hyldeblomst</span></div>
-    </div>
-    <div class="plot-fact-card">
       <p class="plot-fact-title">Træer og buske</p>
       <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#5E8248; border:1.5px solid #46663A;"></span> Hegn-bedet</span></div>
       <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#86AB63; border:1.5px solid #5F8A40;"></span> Egetræet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#86AB63; border:1.5px solid #5F8A40;"></span> Skoven</span><strong>birk m.fl.</strong></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#86AB63; border:1.5px solid #5F8A40;"></span> Skoven</span></div>
       <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#86AB63; border:1.5px solid #5F8A40;"></span> Vejbed</span></div>
       <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#B7D98F; border:1.5px solid #8DBB62;"></span> Hasseltræer</span></div>
       <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#F4E8B5; border:1.5px solid #D6BE72;"></span> Hyldeblomst-buske</span></div>
