@@ -3088,13 +3088,10 @@ function renderGoremaalForMonth(monthIdx) {
 
     // Månedsnavnet sidder uden for den farvede ring og følger buen,
     // ligesom en tegnet kalenderkant - ikke oven på selve farven.
-    let labelAngle = startA + 15;
-    if (labelAngle > 90 && labelAngle < 270) labelAngle -= 180;
     const [lx, ly] = polar(rLabel, startA + 15);
     const text = document.createElementNS(svgNS, 'text');
     text.setAttribute('x', lx);
     text.setAttribute('y', ly);
-    text.setAttribute('transform', `rotate(${labelAngle} ${lx} ${ly})`);
     text.setAttribute('class', 'wheel-month-label');
     text.setAttribute('text-anchor', 'middle');
     text.setAttribute('dominant-baseline', 'middle');
@@ -3108,6 +3105,18 @@ function renderGoremaalForMonth(monthIdx) {
     wheelGroup.style.transition = animate ? 'transform 0.5s cubic-bezier(.3,1.4,.6,1)' : 'none';
     wheelGroup.style.transformOrigin = `${cx}px ${cy}px`;
     wheelGroup.style.transform = `rotate(${rot}deg)`;
+    orientLabels(rot);
+  }
+
+  // Vender månedsnavnene ud fra hvor de står på skærmen efter hjulet er drejet,
+  // så de aldrig står på hovedet - uanset hvilken måned der er valgt.
+  function orientLabels(rot) {
+    labelEls.forEach((text, i) => {
+      const localAngle = i * 30 + 15;
+      const screenAngle = ((localAngle + rot) % 360 + 360) % 360;
+      const angle = (screenAngle > 90 && screenAngle < 270) ? localAngle - 180 : localAngle;
+      text.setAttribute('transform', `rotate(${angle} ${text.getAttribute('x')} ${text.getAttribute('y')})`);
+    });
   }
 
   function updateSelection() {
