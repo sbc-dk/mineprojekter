@@ -1129,7 +1129,9 @@
 
   .goremaal-flow { column-count: 3; column-gap: 1.5rem; margin-top: 1rem; }
   .goremaal-col { margin-bottom: 1.75rem; }
-  .goremaal-col-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; break-after: avoid; }
+  .goremaal-col-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; break-after: avoid; display: flex; align-items: center; gap: 0.45rem; }
+  .goremaal-col-icon { width: 17px; height: 17px; flex-shrink: 0; display: flex; color: var(--sage); }
+  .goremaal-col-icon svg { width: 100%; height: 100%; display: block; }
   .goremaal-list { display: block; }
   .goremaal-item {
     break-inside: avoid; margin-bottom: 0.5rem;
@@ -1206,11 +1208,7 @@
 <nav class="mainnav" id="mainNav">
   <button class="mainnav-btn active" data-view="view-plantebed">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.3"/><path d="M12 2c1.8 0 3 1.6 3 3.4S13.8 9 12 9s-3-1.8-3-3.6S10.2 2 12 2z"/><path d="M12 15c1.8 0 3 1.6 3 3.4S13.8 22 12 22s-3-1.8-3-3.6S10.2 15 12 15z"/><path d="M22 12c0 1.8-1.6 3-3.4 3S15 13.8 15 12s1.8-3 3.6-3S22 10.2 22 12z"/><path d="M9 12c0 1.8-1.6 3-3.4 3S2 13.8 2 12s1.8-3 3.6-3S9 10.2 9 12z"/></svg>
-    Plantebed
-  </button>
-  <button class="mainnav-btn" data-view="view-kokkenhave">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-9"/><path d="M12 13c0-4 3-7 7-7 0 4-3 7-7 7z"/><path d="M12 13c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5z"/></svg>
-    Køkkenhaven
+    Mine planter
   </button>
   <button class="mainnav-btn" data-view="view-indkobsliste">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
@@ -1234,179 +1232,242 @@
   <span class="legend-item"><span class="dot dot-bulb"></span> Løg & knolde</span>
   <span class="legend-item"><span class="dot dot-rose"></span> Roser</span>
   <span class="legend-item"><span class="dot dot-sommerblomst"></span> Sommerblomster</span>
+  <span class="legend-item"><span class="dot dot-herb"></span> Krydderurter</span>
+  <span class="legend-item"><span class="dot dot-veg"></span> Grøntsager</span>
+  <span class="legend-item"><span class="dot dot-berry"></span> Bær</span>
 </div>
 
 <main>
 
-  <!-- Blomstringstid FIRST -->
-  <p class="section-title">Blomstring – sæsonoverblik</p>
+  <!-- Sæsonoverblik FIRST -->
+  <p class="section-title">Blomstring og høst – sæsonoverblik</p>
   <div class="gantt-wrap" id="bloomGantt">
     <div class="gantt-header-wrap">
     <div class="gantt-header-row">
       <div class="gantt-label-col">Plante</div>
-      <div class="gantt-months" style="min-width:490px; grid-template-columns:repeat(7,1fr);"><span class="gantt-month">Apr</span><span class="gantt-month">Maj</span><span class="gantt-month">Jun</span><span class="gantt-month">Jul</span><span class="gantt-month">Aug</span><span class="gantt-month">Sep</span><span class="gantt-month">Okt</span></div>
+      <div class="gantt-months" style="min-width:630px; grid-template-columns:repeat(9,1fr);"><span class="gantt-month">Apr</span><span class="gantt-month">Maj</span><span class="gantt-month">Jun</span><span class="gantt-month">Jul</span><span class="gantt-month">Aug</span><span class="gantt-month">Sep</span><span class="gantt-month">Okt</span><span class="gantt-month">Nov</span><span class="gantt-month">Dec</span></div>
     </div>
     </div>
     <div class="gantt-body-wrap">
-    <div class="gantt-row" data-latin="Fritillaria meleagris">
-      <div class="gantt-label">Vibeæg</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Myosotis sylvatica">
+      <div class="gantt-label">Forglemmigej</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     <div class="gantt-row row-mist" data-latin="Muscari latifolium">
       <div class="gantt-label">Perlehyacint</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row" data-latin="Geum chiloense 'Mai Tai'">
-      <div class="gantt-label">Nellikerod</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Tulipa">
+      <div class="gantt-label">Tulipaner</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Salvia nemorosa 'Ostfriesland'">
-      <div class="gantt-label">Staudesalvie</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Achillea millefolium 'Paprika'">
-      <div class="gantt-label">Røllike</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Knautia macedonica">
-      <div class="gantt-label">Blåhat</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Rosa pimpinellifolia">
-      <div class="gantt-label">Klitrose</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Allium sphaerocephalon">
-      <div class="gantt-label">Prydløg</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Eryngium Zabelli 'Big Blue'">
-      <div class="gantt-label">Mandstro</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Echinacea 'Summer Cocktail'">
-      <div class="gantt-label">Purpursolhat</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Rosa Helena / Rosa 'Lykkefund'">
-      <div class="gantt-label">Honningrose</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Eupatorium maculatum">
-      <div class="gantt-label">Hjortetrøst</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Sedum telephium 'Matrona'">
-      <div class="gantt-label">Sankthansurt</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Persicaria amplexicaulis 'Alba'">
-      <div class="gantt-label">Kærte-pileurt</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Verbena bonariensis 'Lollipop'">
-      <div class="gantt-label">Kæmpe verbena</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Anemone hupehensis / hybrida">
-      <div class="gantt-label">Høstanemone</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Digitalis purpurea 'Dalmatian Peach'">
-      <div class="gantt-label">Fingerbøl</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Antirrhinum majus">
-      <div class="gantt-label">Løvemund</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Verbascum nigrum">
-      <div class="gantt-label">Mørk kongelys</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Myosotis sylvatica">
-      <div class="gantt-label">Forglemmigej</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Fritillaria meleagris">
+      <div class="gantt-label">Vibeæg</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     <div class="gantt-row" data-latin="Clematis montana 'Rubens'">
       <div class="gantt-label">Klematis montana Rubens</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Daucus carota">
-      <div class="gantt-label">Vild gulerod</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Mentha spicata">
+      <div class="gantt-label">Mynte</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row" data-latin="Hydrangea macrophylla">
-      <div class="gantt-label">Havehortensia</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Geum chiloense 'Mai Tai'">
+      <div class="gantt-label">Nellikerod</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Tulipa">
-      <div class="gantt-label">Tulipaner</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Allium schoenoprasum">
+      <div class="gantt-label">Purløg</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Rheum rhabarbarum">
+      <div class="gantt-label">Rabarber</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Raphanus sativus">
+      <div class="gantt-label">Radiser</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     <div class="gantt-row" data-latin="Papaver orientale">
       <div class="gantt-label">Valmue</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Cosmos bipinnatus 'Cupcakes Blush'">
-      <div class="gantt-label">Cosmos 'Cupcakes Blush'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Ocimum basilicum">
+      <div class="gantt-label">Basilikum</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row" data-latin="Helianthus annuus 'White Sun F1'">
-      <div class="gantt-label">Solsikke 'White Sun F1'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Knautia macedonica">
+      <div class="gantt-label">Blåhat</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Alcea rosea">
-      <div class="gantt-label">Stokrose</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Anethum graveolens">
+      <div class="gantt-label">Dild</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row" data-latin="Geranium 'Rebecca Moss'">
-      <div class="gantt-label">Storkenæb 'Rebecca Moss'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Digitalis purpurea 'Dalmatian Peach'">
+      <div class="gantt-label">Fingerbøl</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Foeniculum vulgare 'Purpureum'">
-      <div class="gantt-label">Bronzefennikel</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Rosa Helena / Rosa 'Lykkefund'">
+      <div class="gantt-label">Honningrose</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row" data-latin="Miscanthus sinensis 'Malepartus'">
-      <div class="gantt-label">Elefantgræs 'Malepartus'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Fragaria × ananassa">
+      <div class="gantt-label">Jordbær</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Agastache rugosa 'Alabaster'">
-      <div class="gantt-label">Indianermynte 'Alabaster'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Rosa pimpinellifolia">
+      <div class="gantt-label">Klitrose</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     <div class="gantt-row" data-latin="Sanguisorba officinalis 'Tanna'">
       <div class="gantt-label">Kvæsurt 'Tanna'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Pennisetum alopecuroides 'Red Head'">
-      <div class="gantt-label">Lampepudsergræs 'Red Head'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Verbena bonariensis 'Lollipop'">
+      <div class="gantt-label">Kæmpe verbena</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     <div class="gantt-row" data-latin="Valeriana officinalis">
       <div class="gantt-label">Lægebaldrian</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row row-mist" data-latin="Deschampsia cespitosa 'Tardi flora'">
-      <div class="gantt-label">Mosebunke 'Tardi flora'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row row-mist" data-latin="Antirrhinum majus">
+      <div class="gantt-label">Løvemund</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
-    <div class="gantt-row" data-latin="Calamagrostis acutiflora 'Karl Foerster'">
-      <div class="gantt-label">Sandrør 'Karl Foerster'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Panicum virgatum 'Squaw'">
-      <div class="gantt-label">Staudehirse 'Squaw'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Veronica spicata 'Pink Marshmallow'">
-      <div class="gantt-label">Ærenspris 'Pink Marshmallow'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+    <div class="gantt-row" data-latin="Verbascum nigrum">
+      <div class="gantt-label">Mørk kongelys</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     <div class="gantt-row row-mist" data-latin="Pelargonium 'Salmoneum'">
       <div class="gantt-label">Pelargonie 'Salmoneum'</div>
-      <div class="gantt-track-wrap" style="min-width:490px;"><div class="gantt-track"></div></div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Petroselinum crispum">
+      <div class="gantt-label">Persille</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Allium sphaerocephalon">
+      <div class="gantt-label">Prydløg</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Salvia rosmarinus">
+      <div class="gantt-label">Rosmarin</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Achillea millefolium 'Paprika'">
+      <div class="gantt-label">Røllike</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Calamagrostis acutiflora 'Karl Foerster'">
+      <div class="gantt-label">Sandrør 'Karl Foerster'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Salvia nemorosa 'Ostfriesland'">
+      <div class="gantt-label">Staudesalvie</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Geranium 'Rebecca Moss'">
+      <div class="gantt-label">Storkenæb 'Rebecca Moss'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Thymus vulgaris">
+      <div class="gantt-label">Timian</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Daucus carota">
+      <div class="gantt-label">Vild gulerod</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Foeniculum vulgare 'Purpureum'">
+      <div class="gantt-label">Bronzefennikel</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Solanum lycopersicum">
+      <div class="gantt-label">Cherrytomat</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Cosmos bipinnatus 'Cupcakes Blush'">
+      <div class="gantt-label">Cosmos 'Cupcakes Blush'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Hydrangea macrophylla">
+      <div class="gantt-label">Havehortensia</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Agastache rugosa 'Alabaster'">
+      <div class="gantt-label">Indianermynte 'Alabaster'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Solanum tuberosum">
+      <div class="gantt-label">Kartofler</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Persicaria amplexicaulis 'Alba'">
+      <div class="gantt-label">Kærte-pileurt</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Eryngium Zabelli 'Big Blue'">
+      <div class="gantt-label">Mandstro</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Deschampsia cespitosa 'Tardi flora'">
+      <div class="gantt-label">Mosebunke 'Tardi flora'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Echinacea 'Summer Cocktail'">
+      <div class="gantt-label">Purpursolhat</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Ribes rubrum">
+      <div class="gantt-label">Ribs</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Helianthus annuus 'White Sun F1'">
+      <div class="gantt-label">Solsikke 'White Sun F1'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Brassica oleracea 'Caraflex'">
+      <div class="gantt-label">Spidskål</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Alcea rosea">
+      <div class="gantt-label">Stokrose</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Veronica spicata 'Pink Marshmallow'">
+      <div class="gantt-label">Ærenspris 'Pink Marshmallow'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Miscanthus sinensis 'Malepartus'">
+      <div class="gantt-label">Elefantgræs 'Malepartus'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Brassica oleracea var. sabellica">
+      <div class="gantt-label">Grønkål</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Eupatorium maculatum">
+      <div class="gantt-label">Hjortetrøst</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Anemone hupehensis / hybrida">
+      <div class="gantt-label">Høstanemone</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Pennisetum alopecuroides 'Red Head'">
+      <div class="gantt-label">Lampepudsergræs 'Red Head'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row row-mist" data-latin="Sedum telephium 'Matrona'">
+      <div class="gantt-label">Sankthansurt</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
+    </div>
+    <div class="gantt-row" data-latin="Panicum virgatum 'Squaw'">
+      <div class="gantt-label">Staudehirse 'Squaw'</div>
+      <div class="gantt-track-wrap" style="min-width:630px;"><div class="gantt-track"></div></div>
     </div>
     </div>
   </div>
@@ -1414,7 +1475,7 @@
   <!-- All plants flat list -->
   <div class="section-header-row">
     <p class="section-title">Alle planter</p>
-    <button class="add-plant-btn" data-section="plantebed">+ Tilføj plante</button>
+    <button class="add-plant-btn" data-section="alle">+ Tilføj plante</button>
   </div>
   <div class="filter-bar" id="filterBar">
     <div class="filter-group">
@@ -1425,211 +1486,6 @@
         <button class="ftoggle type-bulb"    data-filter="type" data-value="Løg">Løg</button>
         <button class="ftoggle type-rose"    data-filter="type" data-value="Rose">Roser</button>
         <button class="ftoggle type-sommerblomst" data-filter="type" data-value="Sommerblomst">Sommerblomst</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-group-label">Sol</span>
-      <div class="filter-group-tags">
-        <button class="ftoggle sun-full" data-filter="sun" data-value="Fuld sol">Fuld sol</button>
-        <button class="ftoggle sun-half" data-filter="sun" data-value="Sol/halvskygge">Halvskygge</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-group-label">Blomstring</span>
-      <div class="filter-group-tags">
-        <button class="ftoggle" data-filter="bloom" data-value="foraar">Forår (apr–maj)</button>
-        <button class="ftoggle" data-filter="bloom" data-value="sommer">Sommer (jun–aug)</button>
-        <button class="ftoggle" data-filter="bloom" data-value="efteraar">Efterår (sep–okt)</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-group-label">Egenskab</span>
-      <div class="filter-group-tags">
-        <button class="ftoggle native-toggle" data-filter="native" data-value="true">Hjemmehørende</button>
-        <button class="ftoggle evergreen-toggle" data-filter="evergreen" data-value="true">Halvstedsegrøn</button>
-        <button class="ftoggle scent-toggle" data-filter="scent" data-value="true">Dufter</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-group-label">Rådyr</span>
-      <div class="filter-group-tags">
-        <button class="ftoggle deer-sjaelden-toggle" data-filter="deer" data-value="sjaelden">Sjældent spist</button>
-        <button class="ftoggle deer-nogengange-toggle" data-filter="deer" data-value="nogengange">Spises nogen gange</button>
-        <button class="ftoggle deer-ofte-toggle" data-filter="deer" data-value="ofte">Ofte spist</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid" id="plantGrid">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="card" data-sow="Forår" data-bloom="Jun–sep" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Blåhat</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Knautia macedonica</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Knautia macedonica"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Knautia macedonica"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Sep–okt" data-type="Løg" data-bloom="Apr–maj" data-height="15–20 cm"><div class="card-top"><span class="plant-name">Bredbladet Perlehyacintløg</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Muscari latifolium</div><div class="tags"><span class="tag bloom">Apr–maj</span><span class="tag height">15–20 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Muscari latifolium"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Muscari latifolium"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="120–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Bronzefennikel</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Foeniculum vulgare 'Purpureum'</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">120–150 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Foeniculum vulgare 'Purpureum'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Foeniculum vulgare 'Purpureum'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Apr–maj" data-bloom="Jul–okt" data-sun="Fuld sol" data-height="60–90 cm" data-type="Sommerblomst"><div class="card-top"><span class="plant-name">Cosmos 'Cupcakes Blush'</span><span class="card-dot dot-sommerblomst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></svg></span></div><div class="latin">Cosmos bipinnatus 'Cupcakes Blush'</div><div class="tags"><span class="tag bloom">Jul–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">60–90 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Cosmos bipinnatus 'Cupcakes Blush'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Cosmos bipinnatus 'Cupcakes Blush'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Aug–okt" data-type="Prydgræs" data-sun="Fuld sol" data-height="180–220 cm"><div class="card-top"><span class="plant-name">Elefantgræs 'Malepartus'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Miscanthus sinensis 'Malepartus'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Aug–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">180–220 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Miscanthus sinensis 'Malepartus'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Miscanthus sinensis 'Malepartus'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–jul" data-sun="Sol/halvskygge" data-height="80–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Fingerbøl 'Dalmatian Peach'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Digitalis purpurea 'Dalmatian Peach'</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">80–150 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Digitalis purpurea 'Dalmatian Peach'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Digitalis purpurea 'Dalmatian Peach'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Efterår/forår" data-type="Stauder" data-bloom="Apr–jun" data-sun="Sol/halvskygge"><div class="card-top"><span class="plant-name">Forglemmigej</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Myosotis sylvatica</div><div class="tags"><span class="tag bloom">Apr–jun</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">15–30 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Myosotis sylvatica"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Myosotis sylvatica"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jul–sep" data-sun="Sol/halvskygge" data-height="100–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Havehortensia</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Hydrangea macrophylla</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">100–150 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Hydrangea macrophylla"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Hydrangea macrophylla"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Aug–sep" data-sun="Sol/halvskygge" data-height="150–200 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Hjortetrøst 'Atropurpureum'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Eupatorium maculatum</div><div class="tags"><span class="tag bloom">Aug–sep</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">150–200 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Eupatorium maculatum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Eupatorium maculatum"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="80–120 cm" data-type="Rose"><div class="card-top"><span class="plant-name">Honningrose / Lykkefund</span><span class="card-dot dot-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="2.2"/><circle cx="8.9" cy="9.8" r="2.2"/><circle cx="15.1" cy="9.8" r="2.2"/><path d="M12 14v5"/></svg></span></div><div class="latin">Rosa Helena / Rosa 'Lykkefund'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">80–120 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Rosa Helena / Rosa 'Lykkefund'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Rosa Helena / Rosa 'Lykkefund'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Aug–okt" data-sun="Sol/halvskygge" data-height="60–120 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Høstanemone</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Anemone hupehensis / hybrida</div><div class="tags"><span class="tag bloom">Aug–okt</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">60–120 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Anemone hupehensis / hybrida"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Anemone hupehensis / hybrida"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jul–sep" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Indianermynte 'Alabaster'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Agastache rugosa 'Alabaster'</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Agastache rugosa 'Alabaster'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Agastache rugosa 'Alabaster'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-type="Stauder" data-bloom="Maj–jun" data-sun="Fuld sol"><div class="card-top"><span class="plant-name">Klematis montana Rubens</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Clematis montana 'Rubens'</div><div class="tags"><span class="tag bloom">Maj–jun</span><span class="tag sun">Fuld sol</span><span class="tag height">300–600 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Clematis montana 'Rubens'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Clematis montana 'Rubens'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–jul" data-sun="Fuld sol" data-height="100–150 cm" data-type="Rose"><div class="card-top"><span class="plant-name">Klitrose</span><span class="card-dot dot-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="2.2"/><circle cx="8.9" cy="9.8" r="2.2"/><circle cx="15.1" cy="9.8" r="2.2"/><path d="M12 14v5"/></svg></span></div><div class="latin">Rosa pimpinellifolia</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag sun">Fuld sol</span><span class="tag height">100–150 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Rosa pimpinellifolia"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Rosa pimpinellifolia"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Kvæsurt 'Tanna'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Sanguisorba officinalis 'Tanna'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Sanguisorba officinalis 'Tanna'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Sanguisorba officinalis 'Tanna'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Maj" data-bloom="Jun–okt" data-sun="Fuld sol" data-height="100–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Kæmpe verbena</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Verbena bonariensis 'Lollipop'</div><div class="tags"><span class="tag bloom">Jun–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">100–150 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Verbena bonariensis 'Lollipop'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Verbena bonariensis 'Lollipop'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jul–okt" data-sun="Sol/halvskygge" data-height="80–120 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Kærte-pileurt 'Alba'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Persicaria amplexicaulis 'Alba'</div><div class="tags"><span class="tag bloom">Jul–okt</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">80–120 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Persicaria amplexicaulis 'Alba'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Persicaria amplexicaulis 'Alba'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Aug–sep" data-type="Prydgræs" data-sun="Fuld sol" data-height="80–100 cm"><div class="card-top"><span class="plant-name">Lampepudsergræs 'Red Head'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Pennisetum alopecuroides 'Red Head'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Aug–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">80–100 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Pennisetum alopecuroides 'Red Head'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Pennisetum alopecuroides 'Red Head'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–jul" data-sun="Sol/halvskygge" data-height="80–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Lægebaldrian</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Valeriana officinalis</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">80–150 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Valeriana officinalis"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Valeriana officinalis"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Feb–maj" data-bloom="Jun–sep" data-sun="Fuld sol" data-height="30–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Løvemund</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Antirrhinum majus</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">30–80 cm</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Antirrhinum majus"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Antirrhinum majus"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Mandstro 'Big Blue'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Eryngium Zabelli 'Big Blue'</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Eryngium Zabelli 'Big Blue'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Eryngium Zabelli 'Big Blue'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jul–aug" data-type="Prydgræs" data-sun="Halvskygge" data-height="60–80 cm"><div class="card-top"><span class="plant-name">Mosebunke 'Tardi flora'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Deschampsia cespitosa 'Tardi flora'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Jul–aug</span><span class="tag shade">Halvskygge</span><span class="tag height">60–80 cm</span><span class="tag native">Hjemmehørende</span><span class="tag evergreen">Halvstedsegrøn</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Deschampsia cespitosa 'Tardi flora'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Deschampsia cespitosa 'Tardi flora'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-type="Stauder" data-bloom="Jun–aug" data-sun="Fuld sol"><div class="card-top"><span class="plant-name">Mørk kongelys</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Verbascum nigrum</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">60–120 cm</span><span class="tag native">Hjemmehørende</span><span class="tag evergreen">Halvstedsegrøn</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Verbascum nigrum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Verbascum nigrum"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Maj–jul" data-sun="Sol/halvskygge" data-height="40–50 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Nellikerod 'Mai Tai'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Geum chiloense 'Mai Tai'</div><div class="tags"><span class="tag bloom">Maj–jul</span><span class="tag sun">Sol/halvskygge</span><span class="tag height">40–50 cm</span><span class="tag evergreen">Halvstedsegrøn</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Geum chiloense 'Mai Tai'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Geum chiloense 'Mai Tai'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Maj" data-bloom="Jun–sep" data-sun="Fuld sol" data-height="40–60 cm" data-type="Sommerblomst"><div class="card-top"><span class="plant-name">Pelargonie 'Salmoneum'</span><span class="card-dot dot-sommerblomst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></svg></span></div><div class="latin">Pelargonium 'Salmoneum'</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">40–60 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Pelargonium 'Salmoneum'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Pelargonium 'Salmoneum'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Sep–okt" data-type="Løg" data-bloom="Jun–jul" data-height="60–80 cm"><div class="card-top"><span class="plant-name">Prydløg</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Allium sphaerocephalon</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag height">60–80 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Allium sphaerocephalon"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Allium sphaerocephalon"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jul–sep" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Purpursolhat 'Summer Cocktail'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Echinacea 'Summer Cocktail'</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Echinacea 'Summer Cocktail'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Echinacea 'Summer Cocktail'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="50–60 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Røllike 'Paprika'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Achillea millefolium 'Paprika'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">50–60 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Achillea millefolium 'Paprika'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Achillea millefolium 'Paprika'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jun–jul" data-type="Prydgræs" data-sun="Sol/halvskygge" data-height="150–180 cm"><div class="card-top"><span class="plant-name">Sandrør 'Karl Foerster'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Calamagrostis acutiflora 'Karl Foerster'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Jun–jul</span><span class="tag sun">Sol/halvskygge</span><span class="tag height">150–180 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Calamagrostis acutiflora 'Karl Foerster'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Calamagrostis acutiflora 'Karl Foerster'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Aug–okt" data-sun="Fuld sol" data-height="50–70 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Sankthansurt 'Matrona'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Sedum telephium 'Matrona'</div><div class="tags"><span class="tag bloom">Aug–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">50–70 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Sedum telephium 'Matrona'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Sedum telephium 'Matrona'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Maj" data-bloom="Jul–sep" data-sun="Fuld sol" data-height="90–130 cm" data-type="Sommerblomst"><div class="card-top"><span class="plant-name">Solsikke 'White Sun F1'</span><span class="card-dot dot-sommerblomst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></svg></span></div><div class="latin">Helianthus annuus 'White Sun F1'</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">90–130 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Helianthus annuus 'White Sun F1'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Helianthus annuus 'White Sun F1'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Aug–sep" data-type="Prydgræs" data-sun="Fuld sol" data-height="100–130 cm"><div class="card-top"><span class="plant-name">Staudehirse 'Squaw'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Panicum virgatum 'Squaw'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Aug–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">100–130 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Panicum virgatum 'Squaw'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Panicum virgatum 'Squaw'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="40–50 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Staudesalvie 'Ostfriesland'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Salvia nemorosa 'Ostfriesland'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">40–50 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Salvia nemorosa 'Ostfriesland'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Salvia nemorosa 'Ostfriesland'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Maj–jun" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="150–200 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Stokrose</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Alcea rosea</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">150–200 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Alcea rosea"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Alcea rosea"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–aug" data-sun="Sol/halvskygge" data-height="30–45 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Storkenæb 'Rebecca Moss'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Geranium 'Rebecca Moss'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">30–45 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Geranium 'Rebecca Moss'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Geranium 'Rebecca Moss'"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Sep–okt" data-bloom="Apr–maj" data-sun="Fuld sol" data-height="30–50 cm" data-type="Løg"><div class="card-top"><span class="plant-name">Tulipaner</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Tulipa</div><div class="tags"><span class="tag bloom">Apr–maj</span><span class="tag sun">Fuld sol</span><span class="tag height">30–50 cm</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Tulipa"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Tulipa"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår" data-bloom="Maj–jun" data-sun="Fuld sol" data-height="60–90 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Valmue</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Papaver orientale</div><div class="tags"><span class="tag bloom">Maj–jun</span><span class="tag sun">Fuld sol</span><span class="tag height">60–90 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Papaver orientale"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Papaver orientale"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Sep–okt" data-type="Løg" data-bloom="Apr–maj" data-height="20–30 cm"><div class="card-top"><span class="plant-name">Vibeæg</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Fritillaria meleagris</div><div class="tags"><span class="tag bloom">Apr–maj</span><span class="tag height">20–30 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Fritillaria meleagris"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Fritillaria meleagris"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Apr–maj" data-type="Stauder" data-bloom="Jun–sep" data-sun="Fuld sol"><div class="card-top"><span class="plant-name">Vild gulerod</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Daucus carota</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">30–100 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Daucus carota"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Daucus carota"><span>Tilføj til indkøbsliste</span></label></div></div>
-    <div class="card" data-sow="Forår/efterår" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="30–40 cm" data-type="Stauder" data-evergreen="true" data-evergreen="true" data-evergreen="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true"><div class="card-top"><span class="plant-name">Ærenspris 'Pink Marshmallow'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Veronica spicata 'Pink Marshmallow'</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">30–40 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Veronica spicata 'Pink Marshmallow'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Veronica spicata 'Pink Marshmallow'"><span>Tilføj til indkøbsliste</span></label></div></div>
-  </div>
-</main>
-</section>
-
-<section class="view" id="view-kokkenhave">
-
-<div class="legend">
-  <span class="legend-item"><span class="dot dot-herb"></span> Krydderurter</span>
-  <span class="legend-item"><span class="dot dot-veg"></span> Grøntsager</span>
-  <span class="legend-item"><span class="dot dot-berry"></span> Bær</span>
-</div>
-
-<main>
-
-  <!-- Høstoversigt FIRST -->
-  <p class="section-title">Høst – sæsonoverblik</p>
-  <div class="gantt-wrap" id="harvestGantt">
-    <div class="gantt-header-wrap">
-    <div class="gantt-header-row">
-      <div class="gantt-label-col">Plante</div>
-      <div class="gantt-months" style="min-width:560px; grid-template-columns:repeat(8,1fr);"><span class="gantt-month">Maj</span><span class="gantt-month">Jun</span><span class="gantt-month">Jul</span><span class="gantt-month">Aug</span><span class="gantt-month">Sep</span><span class="gantt-month">Okt</span><span class="gantt-month">Nov</span><span class="gantt-month">Dec</span></div>
-    </div>
-    </div>
-    <div class="gantt-body-wrap">
-    <div class="gantt-row" data-latin="Allium schoenoprasum">
-      <div class="gantt-label">Purløg</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Thymus vulgaris">
-      <div class="gantt-label">Timian</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Mentha spicata">
-      <div class="gantt-label">Mynte</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Salvia rosmarinus">
-      <div class="gantt-label">Rosmarin</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Anethum graveolens">
-      <div class="gantt-label">Dild</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Petroselinum crispum">
-      <div class="gantt-label">Persille</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Raphanus sativus">
-      <div class="gantt-label">Radiser</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Solanum lycopersicum">
-      <div class="gantt-label">Cherrytomat</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Brassica oleracea var. sabellica">
-      <div class="gantt-label">Grønkål</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Fragaria × ananassa">
-      <div class="gantt-label">Jordbær</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Rheum rhabarbarum">
-      <div class="gantt-label">Rabarber</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Ribes rubrum">
-      <div class="gantt-label">Ribs</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Brassica oleracea 'Caraflex'">
-      <div class="gantt-label">Spidskål</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row row-mist" data-latin="Solanum tuberosum">
-      <div class="gantt-label">Kartofler</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    <div class="gantt-row" data-latin="Ocimum basilicum">
-      <div class="gantt-label">Basilikum</div>
-      <div class="gantt-track-wrap" style="min-width:560px;"><div class="gantt-track"></div></div>
-    </div>
-    </div>
-  </div>
-
-  <!-- All kitchen plants flat list -->
-  <div class="section-header-row">
-    <p class="section-title">Alle krydderurter og afgrøder</p>
-    <button class="add-plant-btn" data-section="kokkenhave">+ Tilføj plante</button>
-  </div>
-  <div class="filter-bar" id="kitchenFilterBar">
-    <div class="filter-group">
-      <span class="filter-group-label">Type</span>
-      <div class="filter-group-tags">
         <button class="ftoggle type-herb"  data-filter="type" data-value="Krydderurt">Krydderurt</button>
         <button class="ftoggle type-veg"   data-filter="type" data-value="Grøntsag">Grøntsag</button>
         <button class="ftoggle type-berry" data-filter="type" data-value="Bær">Bær</button>
@@ -1643,54 +1499,90 @@
       </div>
     </div>
     <div class="filter-group">
-      <span class="filter-group-label">Høst</span>
+      <span class="filter-group-label">Blomstring / høst</span>
       <div class="filter-group-tags">
-        <button class="ftoggle" data-filter="harvest" data-value="foraar">Forår (apr–maj)</button>
-        <button class="ftoggle" data-filter="harvest" data-value="sommer">Sommer (jun–aug)</button>
-        <button class="ftoggle" data-filter="harvest" data-value="efteraar">Efterår (sep–okt)</button>
+        <button class="ftoggle" data-filter="period" data-value="foraar">Forår (apr–maj)</button>
+        <button class="ftoggle" data-filter="period" data-value="sommer">Sommer (jun–aug)</button>
+        <button class="ftoggle" data-filter="period" data-value="efteraar">Efterår (sep–okt)</button>
       </div>
     </div>
     <div class="filter-group">
       <span class="filter-group-label">Egenskab</span>
       <div class="filter-group-tags">
+        <button class="ftoggle native-toggle" data-filter="native" data-value="true">Hjemmehørende</button>
+        <button class="ftoggle evergreen-toggle" data-filter="evergreen" data-value="true">Halvstedsegrøn</button>
+        <button class="ftoggle scent-toggle" data-filter="scent" data-value="true">Dufter</button>
         <button class="ftoggle perennial-toggle" data-filter="perennial" data-value="true">Flerårig</button>
         <button class="ftoggle selfsow-toggle" data-filter="selfsow" data-value="true">Selvsår</button>
         <button class="ftoggle pot-toggle" data-filter="pot" data-value="true">Krukkeegnet</button>
       </div>
     </div>
+    <div class="filter-group">
+      <span class="filter-group-label">Rådyr</span>
+      <div class="filter-group-tags">
+        <button class="ftoggle deer-sjaelden-toggle" data-filter="deer" data-value="sjaelden">Sjældent spist</button>
+        <button class="ftoggle deer-nogengange-toggle" data-filter="deer" data-value="nogengange">Spises nogen gange</button>
+        <button class="ftoggle deer-ofte-toggle" data-filter="deer" data-value="ofte">Ofte spist</button>
+      </div>
+    </div>
   </div>
 
-  <div class="grid" id="kitchenGrid">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <div class="grid" id="plantGrid">
     <div class="card" data-sow="Apr–maj" data-harvest="Jun–sep" data-sun="Fuld sol" data-height="20–40 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Basilikum</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Ocimum basilicum</div><div class="tags"><span class="tag harvest">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">20–40 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Ocimum basilicum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Ocimum basilicum"><span>Tilføj til indkøbsliste</span></label></div></div>
-<div class="card" data-sow="Maj" data-harvest="Jul–okt" data-sun="Fuld sol" data-height="100–180 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Cherrytomat</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Solanum lycopersicum</div><div class="tags"><span class="tag harvest">Jul–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">100–180 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Solanum lycopersicum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Solanum lycopersicum"><span>Tilføj til indkøbsliste</span></label></div></div>
-<div class="card" data-sow="Apr–maj" data-harvest="Jun–aug" data-sun="Fuld sol" data-height="40–80 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Dild</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Anethum graveolens</div><div class="tags"><span class="tag harvest">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">40–80 cm</span><span class="tag selfsow">Selvsår</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Anethum graveolens"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Anethum graveolens"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jun–sep" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Blåhat</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Knautia macedonica</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Knautia macedonica"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Knautia macedonica"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Sep–okt" data-type="Løg" data-bloom="Apr–maj" data-height="15–20 cm"><div class="card-top"><span class="plant-name">Bredbladet Perlehyacintløg</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Muscari latifolium</div><div class="tags"><span class="tag bloom">Apr–maj</span><span class="tag height">15–20 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Muscari latifolium"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Muscari latifolium"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="120–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Bronzefennikel</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Foeniculum vulgare 'Purpureum'</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">120–150 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Foeniculum vulgare 'Purpureum'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Foeniculum vulgare 'Purpureum'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Maj" data-harvest="Jul–okt" data-sun="Fuld sol" data-height="100–180 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Cherrytomat</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Solanum lycopersicum</div><div class="tags"><span class="tag harvest">Jul–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">100–180 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Solanum lycopersicum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Solanum lycopersicum"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Apr–maj" data-bloom="Jul–okt" data-sun="Fuld sol" data-height="60–90 cm" data-type="Sommerblomst"><div class="card-top"><span class="plant-name">Cosmos 'Cupcakes Blush'</span><span class="card-dot dot-sommerblomst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></svg></span></div><div class="latin">Cosmos bipinnatus 'Cupcakes Blush'</div><div class="tags"><span class="tag bloom">Jul–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">60–90 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Cosmos bipinnatus 'Cupcakes Blush'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Cosmos bipinnatus 'Cupcakes Blush'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Apr–maj" data-harvest="Jun–aug" data-sun="Fuld sol" data-height="40–80 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Dild</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Anethum graveolens</div><div class="tags"><span class="tag harvest">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">40–80 cm</span><span class="tag selfsow">Selvsår</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Anethum graveolens"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Anethum graveolens"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Aug–okt" data-type="Prydgræs" data-sun="Fuld sol" data-height="180–220 cm"><div class="card-top"><span class="plant-name">Elefantgræs 'Malepartus'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Miscanthus sinensis 'Malepartus'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Aug–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">180–220 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Miscanthus sinensis 'Malepartus'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Miscanthus sinensis 'Malepartus'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–jul" data-sun="Sol/halvskygge" data-height="80–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Fingerbøl 'Dalmatian Peach'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Digitalis purpurea 'Dalmatian Peach'</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">80–150 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Digitalis purpurea 'Dalmatian Peach'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Digitalis purpurea 'Dalmatian Peach'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Efterår/forår" data-type="Stauder" data-bloom="Apr–jun" data-sun="Sol/halvskygge"><div class="card-top"><span class="plant-name">Forglemmigej</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Myosotis sylvatica</div><div class="tags"><span class="tag bloom">Apr–jun</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">15–30 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Myosotis sylvatica"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Myosotis sylvatica"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Maj–jun" data-harvest="Aug–dec" data-sun="Fuld sol" data-height="40–80 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Grønkål</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Brassica oleracea var. sabellica</div><div class="tags"><span class="tag harvest">Aug–dec</span><span class="tag sun">Fuld sol</span><span class="tag height">40–80 cm</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Brassica oleracea var. sabellica"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Brassica oleracea var. sabellica"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jul–sep" data-sun="Sol/halvskygge" data-height="100–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Havehortensia</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Hydrangea macrophylla</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">100–150 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Hydrangea macrophylla"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Hydrangea macrophylla"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Aug–sep" data-sun="Sol/halvskygge" data-height="150–200 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Hjortetrøst 'Atropurpureum'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Eupatorium maculatum</div><div class="tags"><span class="tag bloom">Aug–sep</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">150–200 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Eupatorium maculatum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Eupatorium maculatum"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="80–120 cm" data-type="Rose"><div class="card-top"><span class="plant-name">Honningrose / Lykkefund</span><span class="card-dot dot-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="2.2"/><circle cx="8.9" cy="9.8" r="2.2"/><circle cx="15.1" cy="9.8" r="2.2"/><path d="M12 14v5"/></svg></span></div><div class="latin">Rosa Helena / Rosa 'Lykkefund'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">80–120 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Rosa Helena / Rosa 'Lykkefund'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Rosa Helena / Rosa 'Lykkefund'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Aug–okt" data-sun="Sol/halvskygge" data-height="60–120 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Høstanemone</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Anemone hupehensis / hybrida</div><div class="tags"><span class="tag bloom">Aug–okt</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">60–120 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Anemone hupehensis / hybrida"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Anemone hupehensis / hybrida"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jul–sep" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Indianermynte 'Alabaster'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Agastache rugosa 'Alabaster'</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Agastache rugosa 'Alabaster'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Agastache rugosa 'Alabaster'"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Forår/efterår" data-harvest="Jun–jul" data-sun="Fuld sol" data-height="15–25 cm" data-type="Bær"><div class="card-top"><span class="plant-name">Jordbær</span><span class="card-dot dot-berry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="3"/><circle cx="15" cy="14" r="3"/><circle cx="12" cy="9" r="3"/><path d="M12 6V4"/></svg></span></div><div class="latin">Fragaria × ananassa</div><div class="tags"><span class="tag harvest">Jun–jul</span><span class="tag sun">Fuld sol</span><span class="tag height">15–25 cm</span><span class="tag perennial">Flerårig</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Fragaria × ananassa"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Fragaria × ananassa"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Apr–maj" data-harvest="Jul–sep" data-sun="Fuld sol" data-height="40–60 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Kartofler</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Solanum tuberosum</div><div class="tags"><span class="tag harvest">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">40–60 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Solanum tuberosum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Solanum tuberosum"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-type="Stauder" data-bloom="Maj–jun" data-sun="Fuld sol"><div class="card-top"><span class="plant-name">Klematis montana Rubens</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Clematis montana 'Rubens'</div><div class="tags"><span class="tag bloom">Maj–jun</span><span class="tag sun">Fuld sol</span><span class="tag height">300–600 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Clematis montana 'Rubens'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Clematis montana 'Rubens'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–jul" data-sun="Fuld sol" data-height="100–150 cm" data-type="Rose"><div class="card-top"><span class="plant-name">Klitrose</span><span class="card-dot dot-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="2.2"/><circle cx="8.9" cy="9.8" r="2.2"/><circle cx="15.1" cy="9.8" r="2.2"/><path d="M12 14v5"/></svg></span></div><div class="latin">Rosa pimpinellifolia</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag sun">Fuld sol</span><span class="tag height">100–150 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Rosa pimpinellifolia"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Rosa pimpinellifolia"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Kvæsurt 'Tanna'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Sanguisorba officinalis 'Tanna'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Sanguisorba officinalis 'Tanna'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Sanguisorba officinalis 'Tanna'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Maj" data-bloom="Jun–okt" data-sun="Fuld sol" data-height="100–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Kæmpe verbena</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Verbena bonariensis 'Lollipop'</div><div class="tags"><span class="tag bloom">Jun–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">100–150 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Verbena bonariensis 'Lollipop'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Verbena bonariensis 'Lollipop'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jul–okt" data-sun="Sol/halvskygge" data-height="80–120 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Kærte-pileurt 'Alba'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Persicaria amplexicaulis 'Alba'</div><div class="tags"><span class="tag bloom">Jul–okt</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">80–120 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Persicaria amplexicaulis 'Alba'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Persicaria amplexicaulis 'Alba'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Aug–sep" data-type="Prydgræs" data-sun="Fuld sol" data-height="80–100 cm"><div class="card-top"><span class="plant-name">Lampepudsergræs 'Red Head'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Pennisetum alopecuroides 'Red Head'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Aug–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">80–100 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Pennisetum alopecuroides 'Red Head'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Pennisetum alopecuroides 'Red Head'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–jul" data-sun="Sol/halvskygge" data-height="80–150 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Lægebaldrian</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Valeriana officinalis</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">80–150 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Valeriana officinalis"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Valeriana officinalis"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Feb–maj" data-bloom="Jun–sep" data-sun="Fuld sol" data-height="30–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Løvemund</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Antirrhinum majus</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">30–80 cm</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Antirrhinum majus"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Antirrhinum majus"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Mandstro 'Big Blue'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Eryngium Zabelli 'Big Blue'</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Eryngium Zabelli 'Big Blue'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Eryngium Zabelli 'Big Blue'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jul–aug" data-type="Prydgræs" data-sun="Halvskygge" data-height="60–80 cm"><div class="card-top"><span class="plant-name">Mosebunke 'Tardi flora'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Deschampsia cespitosa 'Tardi flora'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Jul–aug</span><span class="tag shade">Halvskygge</span><span class="tag height">60–80 cm</span><span class="tag native">Hjemmehørende</span><span class="tag evergreen">Halvstedsegrøn</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Deschampsia cespitosa 'Tardi flora'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Deschampsia cespitosa 'Tardi flora'"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Apr–maj" data-harvest="Maj–okt" data-sun="Sol/halvskygge" data-height="30–60 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Mynte</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Mentha spicata</div><div class="tags"><span class="tag harvest">Maj–okt</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">30–60 cm</span><span class="tag perennial">Flerårig</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Mentha spicata"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Mentha spicata"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-type="Stauder" data-bloom="Jun–aug" data-sun="Fuld sol"><div class="card-top"><span class="plant-name">Mørk kongelys</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Verbascum nigrum</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">60–120 cm</span><span class="tag native">Hjemmehørende</span><span class="tag evergreen">Halvstedsegrøn</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Verbascum nigrum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Verbascum nigrum"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Maj–jul" data-sun="Sol/halvskygge" data-height="40–50 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Nellikerod 'Mai Tai'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Geum chiloense 'Mai Tai'</div><div class="tags"><span class="tag bloom">Maj–jul</span><span class="tag sun">Sol/halvskygge</span><span class="tag height">40–50 cm</span><span class="tag evergreen">Halvstedsegrøn</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Geum chiloense 'Mai Tai'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Geum chiloense 'Mai Tai'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Maj" data-bloom="Jun–sep" data-sun="Fuld sol" data-height="40–60 cm" data-type="Sommerblomst"><div class="card-top"><span class="plant-name">Pelargonie 'Salmoneum'</span><span class="card-dot dot-sommerblomst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></svg></span></div><div class="latin">Pelargonium 'Salmoneum'</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">40–60 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Pelargonium 'Salmoneum'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Pelargonium 'Salmoneum'"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Apr" data-harvest="Jun–okt" data-sun="Sol/halvskygge" data-height="15–30 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Persille</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Petroselinum crispum</div><div class="tags"><span class="tag harvest">Jun–okt</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">15–30 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Petroselinum crispum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Petroselinum crispum"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Sep–okt" data-type="Løg" data-bloom="Jun–jul" data-height="60–80 cm"><div class="card-top"><span class="plant-name">Prydløg</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Allium sphaerocephalon</div><div class="tags"><span class="tag bloom">Jun–jul</span><span class="tag height">60–80 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Allium sphaerocephalon"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Allium sphaerocephalon"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Apr" data-harvest="Maj–sep" data-sun="Fuld sol" data-height="20–30 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Purløg</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Allium schoenoprasum</div><div class="tags"><span class="tag harvest">Maj–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">20–30 cm</span><span class="tag perennial">Flerårig</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Allium schoenoprasum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Allium schoenoprasum"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jul–sep" data-sun="Fuld sol" data-height="60–80 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Purpursolhat 'Summer Cocktail'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Echinacea 'Summer Cocktail'</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">60–80 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Echinacea 'Summer Cocktail'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Echinacea 'Summer Cocktail'"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Forår/efterår" data-harvest="Maj–jun" data-sun="Fuld sol" data-height="60–100 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Rabarber</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Rheum rhabarbarum</div><div class="tags"><span class="tag harvest">Maj–jun</span><span class="tag sun">Fuld sol</span><span class="tag height">60–100 cm</span><span class="tag perennial">Flerårig</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Rheum rhabarbarum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Rheum rhabarbarum"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Apr" data-harvest="Maj–sep" data-sun="Fuld sol" data-height="10–15 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Radiser</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Raphanus sativus</div><div class="tags"><span class="tag harvest">Maj–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">10–15 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Raphanus sativus"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Raphanus sativus"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Forår/efterår" data-harvest="Jul" data-sun="Sol/halvskygge" data-height="100–150 cm" data-type="Bær"><div class="card-top"><span class="plant-name">Ribs</span><span class="card-dot dot-berry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="3"/><circle cx="15" cy="14" r="3"/><circle cx="12" cy="9" r="3"/><path d="M12 6V4"/></svg></span></div><div class="latin">Ribes rubrum</div><div class="tags"><span class="tag harvest">Jul</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">100–150 cm</span><span class="tag perennial">Flerårig</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Ribes rubrum"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Ribes rubrum"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Maj" data-harvest="Jun–sep" data-sun="Fuld sol" data-height="40–60 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Rosmarin</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Salvia rosmarinus</div><div class="tags"><span class="tag harvest">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">40–60 cm</span><span class="tag perennial">Flerårig</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Salvia rosmarinus"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Salvia rosmarinus"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="50–60 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Røllike 'Paprika'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Achillea millefolium 'Paprika'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">50–60 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Achillea millefolium 'Paprika'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Achillea millefolium 'Paprika'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jun–jul" data-type="Prydgræs" data-sun="Sol/halvskygge" data-height="150–180 cm"><div class="card-top"><span class="plant-name">Sandrør 'Karl Foerster'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Calamagrostis acutiflora 'Karl Foerster'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Jun–jul</span><span class="tag sun">Sol/halvskygge</span><span class="tag height">150–180 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Calamagrostis acutiflora 'Karl Foerster'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Calamagrostis acutiflora 'Karl Foerster'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Aug–okt" data-sun="Fuld sol" data-height="50–70 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Sankthansurt 'Matrona'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Sedum telephium 'Matrona'</div><div class="tags"><span class="tag bloom">Aug–okt</span><span class="tag sun">Fuld sol</span><span class="tag height">50–70 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Sedum telephium 'Matrona'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Sedum telephium 'Matrona'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Maj" data-bloom="Jul–sep" data-sun="Fuld sol" data-height="90–130 cm" data-type="Sommerblomst"><div class="card-top"><span class="plant-name">Solsikke 'White Sun F1'</span><span class="card-dot dot-sommerblomst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></svg></span></div><div class="latin">Helianthus annuus 'White Sun F1'</div><div class="tags"><span class="tag bloom">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">90–130 cm</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Helianthus annuus 'White Sun F1'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Helianthus annuus 'White Sun F1'"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Mar–maj" data-harvest="Jul–sep" data-sun="Fuld sol" data-height="30–40 cm" data-type="Grøntsag"><div class="card-top"><span class="plant-name">Spidskål</span><span class="card-dot dot-veg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-3 0-5-2.5-5-6 0-3 2-5.5 5-5.5s5 2.5 5 5.5c0 3.5-2 6-5 6z"/><path d="M12 10.5V6M9 6c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg></span></div><div class="latin">Brassica oleracea 'Caraflex'</div><div class="tags"><span class="tag harvest">Jul–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">30–40 cm</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Brassica oleracea 'Caraflex'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Brassica oleracea 'Caraflex'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Aug–sep" data-type="Prydgræs" data-sun="Fuld sol" data-height="100–130 cm"><div class="card-top"><span class="plant-name">Staudehirse 'Squaw'</span><span class="card-dot dot-grass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v7"/><path d="M8 5c0 6 1.5 10 3 14M16 5c0 6-1.5 10-3 14"/></svg></span></div><div class="latin">Panicum virgatum 'Squaw'</div><div class="tags"><span class="tag grass">Prydgræs</span><span class="tag bloom">Aug–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">100–130 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Panicum virgatum 'Squaw'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Panicum virgatum 'Squaw'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Jun–aug" data-sun="Fuld sol" data-height="40–50 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Staudesalvie 'Ostfriesland'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Salvia nemorosa 'Ostfriesland'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">40–50 cm</span><span class="tag scent">Dufter</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Salvia nemorosa 'Ostfriesland'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Salvia nemorosa 'Ostfriesland'"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Maj–jun" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="150–200 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Stokrose</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Alcea rosea</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">150–200 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Alcea rosea"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Alcea rosea"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jun–aug" data-sun="Sol/halvskygge" data-height="30–45 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Storkenæb 'Rebecca Moss'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Geranium 'Rebecca Moss'</div><div class="tags"><span class="tag bloom">Jun–aug</span><span class="tag shade">Sol/halvskygge</span><span class="tag height">30–45 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Geranium 'Rebecca Moss'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Geranium 'Rebecca Moss'"><span>Tilføj til indkøbsliste</span></label></div></div>
     <div class="card" data-sow="Maj" data-harvest="Jun–sep" data-sun="Fuld sol" data-height="10–20 cm" data-type="Krydderurt"><div class="card-top"><span class="plant-name">Timian</span><span class="card-dot dot-herb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span></div><div class="latin">Thymus vulgaris</div><div class="tags"><span class="tag harvest">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">10–20 cm</span><span class="tag perennial">Flerårig</span><span class="tag pot">Krukkeegnet</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Thymus vulgaris"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Thymus vulgaris"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Sep–okt" data-bloom="Apr–maj" data-sun="Fuld sol" data-height="30–50 cm" data-type="Løg"><div class="card-top"><span class="plant-name">Tulipaner</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Tulipa</div><div class="tags"><span class="tag bloom">Apr–maj</span><span class="tag sun">Fuld sol</span><span class="tag height">30–50 cm</span><span class="tag deer deer-ofte">Ofte spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Tulipa"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Tulipa"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår" data-bloom="Maj–jun" data-sun="Fuld sol" data-height="60–90 cm" data-type="Stauder"><div class="card-top"><span class="plant-name">Valmue</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Papaver orientale</div><div class="tags"><span class="tag bloom">Maj–jun</span><span class="tag sun">Fuld sol</span><span class="tag height">60–90 cm</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Papaver orientale"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Papaver orientale"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Sep–okt" data-type="Løg" data-bloom="Apr–maj" data-height="20–30 cm"><div class="card-top"><span class="plant-name">Vibeæg</span><span class="card-dot dot-bulb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.2 2-3.3 4.3-3.3 6.3a3.3 3.3 0 0 0 6.6 0C15.3 7.3 14.2 5 12 3z"/><path d="M12 12.6V20M9 20h6"/></svg></span></div><div class="latin">Fritillaria meleagris</div><div class="tags"><span class="tag bloom">Apr–maj</span><span class="tag height">20–30 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Fritillaria meleagris"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Fritillaria meleagris"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Apr–maj" data-type="Stauder" data-bloom="Jun–sep" data-sun="Fuld sol"><div class="card-top"><span class="plant-name">Vild gulerod</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Daucus carota</div><div class="tags"><span class="tag bloom">Jun–sep</span><span class="tag sun">Fuld sol</span><span class="tag height">30–100 cm</span><span class="tag native">Hjemmehørende</span><span class="tag scent">Dufter</span><span class="tag deer deer-nogengange">Spises nogen gange</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Daucus carota"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Daucus carota"><span>Tilføj til indkøbsliste</span></label></div></div>
+    <div class="card" data-sow="Forår/efterår" data-bloom="Jul–aug" data-sun="Fuld sol" data-height="30–40 cm" data-type="Stauder" data-evergreen="true" data-evergreen="true" data-evergreen="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true" data-scent="true"><div class="card-top"><span class="plant-name">Ærenspris 'Pink Marshmallow'</span><span class="card-dot dot-perenial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V12"/><path d="M12 12c0-4.5-3-7-6-7 0 4.5 3 7 6 7z"/><path d="M12 12c0-4.5 3-7 6-7 0 4.5-3 7-6 7z"/></svg></span></div><div class="latin">Veronica spicata 'Pink Marshmallow'</div><div class="tags"><span class="tag bloom">Jul–aug</span><span class="tag sun">Fuld sol</span><span class="tag height">30–40 cm</span><span class="tag native">Hjemmehørende</span><span class="tag deer deer-sjaelden">Sjældent spist</span></div><button class="read-more-btn">Plantevejledning</button><div class="card-toggles"><label class="planted-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="planted-checkbox" data-latin="Veronica spicata 'Pink Marshmallow'"><span>Plantet i haven</span></label><label class="shopping-toggle" onclick="event.stopPropagation()"><input type="checkbox" class="shopping-checkbox" data-latin="Veronica spicata 'Pink Marshmallow'"><span>Tilføj til indkøbsliste</span></label></div></div>
   </div>
 </main>
 </section>
@@ -1698,7 +1590,7 @@
 <section class="view" id="view-indkobsliste">
 <main>
   <p class="section-title">Indkøbsliste</p>
-  <p class="shopping-intro">Alle planter du har sat flueben ved "Tilføj til indkøbsliste" i Plantebed eller Køkkenhaven, samlet ét sted - klar til næste tur på planteskolen.</p>
+  <p class="shopping-intro">Alle planter du har sat flueben ved "Tilføj til indkøbsliste" under Mine planter, samlet ét sted - klar til næste tur på planteskolen.</p>
   <div id="shoppingListContent"></div>
 </main>
 </section>
@@ -1804,7 +1696,7 @@
 <section class="view" id="view-goremaal">
 <main>
   <p class="section-title">Gøremål i haven</p>
-  <p class="shopping-intro">Klik på en måned, eller drej hjulet med fingeren, for at se hvad der er tid til at forspire, så, gøde, beskære og høste i <strong id="goremaalMonthName">-</strong> - baseret på alle planterne i Plantebed og Køkkenhaven.</p>
+  <p class="shopping-intro">Klik på en måned, eller drej hjulet med fingeren, for at se hvad der er tid til at forspire, så, gøde, beskære og høste i <strong id="goremaalMonthName">-</strong> - baseret på alle planterne under Mine planter.</p>
 
   <div class="season-wheel-wrap">
     <div class="season-wheel">
@@ -1815,29 +1707,29 @@
   <!-- Alle gøremål flyder i tre kolonner: næste sektion starter lige under den forrige -->
   <div class="goremaal-flow">
     <div class="goremaal-col">
-      <p class="goremaal-col-title">🪴 Forspir indendørs nu</p>
+      <p class="goremaal-col-title" data-icon="presprout">Forspir indendørs nu</p>
       <div class="goremaal-list" id="goremaalPresproutList"></div>
     </div>
     <div class="goremaal-col">
-      <p class="goremaal-col-title">🌱 Så / plant ud nu</p>
+      <p class="goremaal-col-title" data-icon="planting">Så / plant ud nu</p>
       <div class="goremaal-list" id="goremaalSowList"></div>
     </div>
     <div class="goremaal-col">
-      <p class="goremaal-col-title">🧺 Høst nu</p>
+      <p class="goremaal-col-title" data-icon="harvest">Høst nu</p>
       <div class="goremaal-list" id="goremaalHarvestList"></div>
     </div>
     <div class="goremaal-col">
-      <p class="goremaal-col-title">🌿 Gød nu</p>
+      <p class="goremaal-col-title" data-icon="fertilizing">Gød nu</p>
       <p class="goremaal-note">Du gøder dine planter én gang om året i marts. Læs mere under "Gødning" i hver plantes vejledning.</p>
       <div class="goremaal-list" id="goremaalFertilizeList"></div>
       <p class="goremaal-note goremaal-note-after" id="goremaalNoFertilize"></p>
     </div>
     <div class="goremaal-col">
-      <p class="goremaal-col-title">✂️ Beskær nu</p>
+      <p class="goremaal-col-title" data-icon="pruning">Beskær nu</p>
       <div class="goremaal-list" id="goremaalPruneList"></div>
     </div>
     <div class="goremaal-col">
-      <p class="goremaal-col-title">🍃 Tag stiklinger nu</p>
+      <p class="goremaal-col-title" data-icon="cuttings">Tag stiklinger nu</p>
       <div class="goremaal-list" id="goremaalCuttingsList"></div>
     </div>
   </div>
@@ -2023,6 +1915,16 @@ const localImages = {
 };
 
 // --- Custom (user-added) plants ---
+// "Mine planter" samler blomster og afgrøder i ét gitter. Selvtilføjede planter
+// gemmes stadig under plantebed/kokkenhave (ud fra typen), så gamle planter bevares.
+const ALL_TRAITS = [
+  { key: 'native',    label: 'Hjemmehørende' },
+  { key: 'evergreen', label: 'Halvstedsegrøn' },
+  { key: 'scent',     label: 'Dufter' },
+  { key: 'perennial', label: 'Flerårig' },
+  { key: 'selfsow',   label: 'Selvsår' },
+  { key: 'pot',       label: 'Krukkeegnet' },
+];
 const SECTION_CONFIG = {
   plantebed: {
     gridId: 'plantGrid',
@@ -2035,14 +1937,10 @@ const SECTION_CONFIG = {
       { value: 'Rose',     dot: 'dot-rose' },
       { value: 'Sommerblomst', dot: 'dot-sommerblomst' },
     ],
-    traits: [
-      { key: 'native',    label: 'Hjemmehørende' },
-      { key: 'evergreen', label: 'Halvstedsegrøn' },
-      { key: 'scent',     label: 'Dufter' },
-    ],
+    traits: ALL_TRAITS,
   },
   kokkenhave: {
-    gridId: 'kitchenGrid',
+    gridId: 'plantGrid',
     rangeKey: 'harvest',
     periodLabel: 'Høstperiode',
     types: [
@@ -2050,16 +1948,16 @@ const SECTION_CONFIG = {
       { value: 'Grøntsag',   dot: 'dot-veg' },
       { value: 'Bær',        dot: 'dot-berry' },
     ],
-    traits: [
-      { key: 'perennial', label: 'Flerårig' },
-      { key: 'selfsow',   label: 'Selvsår' },
-      { key: 'pot',       label: 'Krukkeegnet' },
-    ],
+    traits: ALL_TRAITS,
   },
 };
 
 const DEER_LABELS = { sjaelden: 'Sjældent spist', nogengange: 'Spises nogen gange', ofte: 'Ofte spist' };
 const FILTER_APPLIERS = {};
+
+function sectionForType(type) {
+  return SECTION_CONFIG.kokkenhave.types.some(t => t.value === type) ? 'kokkenhave' : 'plantebed';
+}
 
 function loadCustomPlants(section) {
   try { return JSON.parse(localStorage.getItem('snedkerkrogen_custom_' + section)) || []; }
@@ -2118,7 +2016,7 @@ function buildCustomCardHTML(section, plant) {
   // so the "planted" tracker doesn't conflate several untitled plants.
   const plantedKey = escapeHtml(plant.latin || plant.id);
 
-  return `<div class="card custom" ${dataAttrs.join(' ')} data-custom-id="${plant.id}" data-guide="${escapeHtml(plant.guide || '')}">
+  return `<div class="card custom" ${dataAttrs.join(' ')} data-section="${section}" data-custom-id="${plant.id}" data-guide="${escapeHtml(plant.guide || '')}">
     <button class="remove-custom-btn" title="Fjern plante" onclick="event.stopPropagation()">×</button>
     <div class="card-top"><span class="plant-name">${escapeHtml(plant.name)}</span><span class="card-dot ${dot}">${DOT_ICONS[dot] || ''}</span></div>
     <div class="latin">${escapeHtml(plant.latin)}</div>
@@ -2133,7 +2031,7 @@ function buildCustomCardHTML(section, plant) {
 function renderCustomPlants(section) {
   const cfg = SECTION_CONFIG[section];
   const grid = document.getElementById(cfg.gridId);
-  grid.querySelectorAll('.card.custom').forEach(c => c.remove());
+  grid.querySelectorAll(`.card.custom[data-section="${section}"]`).forEach(c => c.remove());
   loadCustomPlants(section).forEach(plant => {
     grid.insertAdjacentHTML('beforeend', buildCustomCardHTML(section, plant));
   });
@@ -2421,7 +2319,8 @@ function setupFilters(barId, gridId, rangeKey) {
   function cardMatches(card, filter, value) {
     let show = true;
     if (filter === rangeKey) {
-      if (!bloomMatches(card.dataset[rangeKey], value)) show = false;
+      // Blomster har en blomstringsperiode, afgrøder en høstperiode
+      if (!bloomMatches(card.dataset.bloom || card.dataset.harvest, value)) show = false;
     } else if (filter === 'sun') {
       const cardSun = card.dataset.sun || '';
       if (value === 'Fuld sol' && cardSun !== 'Fuld sol') show = false;
@@ -2452,8 +2351,7 @@ function setupFilters(barId, gridId, rangeKey) {
   FILTER_APPLIERS[gridId] = applyFilters;
 }
 
-setupFilters('filterBar', 'plantGrid', 'bloom');
-setupFilters('kitchenFilterBar', 'kitchenGrid', 'harvest');
+setupFilters('filterBar', 'plantGrid', 'period');
 
 // --- Main navigation ---
 document.querySelectorAll('.mainnav-btn').forEach(btn => {
@@ -2540,13 +2438,14 @@ const GUIDE_ICONS = {
   pot:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.3 10.5A2 2 0 0 1 15.7 20H8.3a2 2 0 0 1-2-1.5L5 8z"/><path d="M3 8h18M8.5 8V6a3.5 3.5 0 0 1 7 0v2"/></svg>',
   soil:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 18l9 4 9-4"/></svg>',
   presprout: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14h12l-1.5 6h-9z"/><path d="M12 14V9"/><path d="M12 9c0-2.5-2-4-4.5-4 0 2.5 2 4 4.5 4z"/><path d="M12 11c0-2.5 2-4 4.5-4 0 2.5-2 4-4.5 4z"/></svg>',
-  planting:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="17" r="2"/><path d="M12 15V9M9 9c0-2 1.5-4 3-4s3 2 3 4"/></svg>',
+  planting:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5"/><path d="M12 3v8.5"/><path d="M8 11.5h8v3.8c0 2.4-1.8 4.4-4 5.7-2.2-1.3-4-3.3-4-5.7z"/></svg>',
+  harvest:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5h18l-1.7 8.7a2 2 0 0 1-2 1.6H6.7a2 2 0 0 1-2-1.6z"/><path d="M7.5 10.5c0-3 2-5.5 4.5-5.5s4.5 2.5 4.5 5.5"/><path d="M9 13.8v3.8M12 13.8v3.8M15 13.8v3.8"/></svg>',
   care:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 5-6 8-6 11a6 6 0 0 0 12 0c0-3-2-6-6-11z"/></svg>',
   pruning:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><path d="M7.5 7.5L20 20M7.5 16.5L20 4"/></svg>',
   makker:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21v-4a3 3 0 0 1 6 0v4"/><path d="M4 21v-3a2.5 2.5 0 0 1 3-2.45M20 21v-3a2.5 2.5 0 0 0-3-2.45"/><circle cx="12" cy="9" r="3"/><circle cx="6" cy="10" r="2"/><circle cx="18" cy="10" r="2"/></svg>',
   deer:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4c-1.5 0-2.5 1.5-2 3M17 4c1.5 0 2.5 1.5 2 3"/><path d="M8 5c-.5 2-2 2.5-3 2M16 5c.5 2 2 2.5 3 2"/><ellipse cx="12" cy="13" rx="4.5" ry="5"/></svg>',
   seeds:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="5" ry="7"/><path d="M12 7V3M9 5l3-2 3 2"/></svg>',
-  cuttings:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"/><path d="M12 8c-2-1-3 0-4 1M12 8c2-1 3 0 4 1"/><path d="M12 13c-1 2-1 2-3 3M12 13c1 2 1 2 3 3M12 13v3"/></svg>',
+  cuttings:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(12 12) scale(1.35) rotate(180) translate(-12 -9.5)" stroke-width="1.33"><path d="M12 3v10"/><path d="M12 8c-2-1-3 0-4 1M12 8c2-1 3 0 4 1"/><path d="M12 13c-1 2-1 2-3 3M12 13c1 2 1 2 3 3M12 13v3"/></g></svg>',
   fertilizing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="1.3"/><circle cx="13" cy="5" r="1.3"/><circle cx="18" cy="9" r="1.3"/><circle cx="10" cy="12" r="1.3"/><circle cx="16" cy="14" r="1.3"/><path d="M4 20c2-1 4-1 6 0s4 1 6 0 4-1 4 0"/></svg>',
 };
 
@@ -2579,7 +2478,7 @@ function renderGuideBody(guide) {
 
 const TAG_INFO = {
   bloom:     { label: 'Blomstring',        icon: GUIDE_ICONS.period },
-  harvest:   { label: 'Høst',              icon: GUIDE_ICONS.period },
+  harvest:   { label: 'Høst',              icon: GUIDE_ICONS.harvest },
   sow:       { label: 'Såning',            icon: GUIDE_ICONS.planting },
   sun:       { label: 'Sol',               icon: GUIDE_ICONS.sun },
   shade:     { label: 'Sol',               icon: GUIDE_ICONS.shade },
@@ -2695,8 +2594,7 @@ document.querySelectorAll('.gantt-row').forEach(row => {
 
 // --- Season overview: Gantt-style timeline bars ---
 const GANTT_MONTHS = {
-  bloom:   ['Apr','Maj','Jun','Jul','Aug','Sep','Okt'],
-  harvest: ['Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'],
+  period: ['Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'],
 };
 
 function findCardByLatin(latin) {
@@ -2725,7 +2623,7 @@ function renderGantt(wrapId, rangeKey) {
     const card = findCardByLatin(row.dataset.latin);
     const trackWrap = row.querySelector('.gantt-track-wrap');
     if (!card || !trackWrap) return;
-    const rangeText = card.dataset[rangeKey];
+    const rangeText = card.dataset.bloom || card.dataset.harvest;
     const range = parseMonthRange(rangeText, months);
     if (!range) return;
     const dotEl = card.querySelector('.card-dot');
@@ -2755,8 +2653,7 @@ function renderGantt(wrapId, rangeKey) {
   });
 }
 
-renderGantt('bloomGantt', 'bloom');
-renderGantt('harvestGantt', 'harvest');
+renderGantt('bloomGantt', 'period');
 
 // --- Season overview: keep month header visible while scrolling, in sync with sideways scroll ---
 function updateNavHeight() {
@@ -2787,7 +2684,6 @@ function syncGanttScroll(wrapId) {
   });
 }
 syncGanttScroll('bloomGantt');
-syncGanttScroll('harvestGantt');
 
 // --- Planted tracker ---
 const PLANTED_KEY = 'snedkerkrogen_plantet';
@@ -2869,7 +2765,7 @@ function renderShoppingList() {
   }
 
   if (items.length === 0) {
-    container.innerHTML = '<p class="shopping-empty">Din indkøbsliste er tom. Sæt flueben ved "Tilføj til indkøbsliste" på de planter, du gerne vil købe, i Plantebed eller Køkkenhaven.</p>';
+    container.innerHTML = '<p class="shopping-empty">Din indkøbsliste er tom. Sæt flueben ved "Tilføj til indkøbsliste" på de planter, du gerne vil købe, under Mine planter.</p>';
     return;
   }
 
@@ -2906,7 +2802,6 @@ renderShoppingList();
 
 // --- Add plant form ---
 const MONTHS_FULL = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
-let currentAddSection = null;
 const addModal = document.getElementById('addModal');
 const addForm = document.getElementById('addPlantForm');
 const addTypeSelect = document.getElementById('addType');
@@ -2919,16 +2814,16 @@ MONTHS_FULL.forEach(m => {
   addToMonth.insertAdjacentHTML('beforeend', `<option value="${m}">${m}</option>`);
 });
 
-function openAddModal(section) {
-  currentAddSection = section;
-  const cfg = SECTION_CONFIG[section];
-  document.getElementById('addModalTitle').textContent =
-    section === 'plantebed' ? 'Tilføj ny plante til Plantebed' : 'Tilføj ny plante til Køkkenhaven';
-  document.getElementById('addPeriodLabel').textContent = cfg.periodLabel;
+function openAddModal() {
+  document.getElementById('addModalTitle').textContent = 'Tilføj ny plante';
+  document.getElementById('addPeriodLabel').textContent = 'Blomstring / høst';
 
+  const group = (label, types) => `<optgroup label="${label}">` +
+    types.map(t => `<option value="${t.value}">${t.value}</option>`).join('') + '</optgroup>';
   addTypeSelect.innerHTML = '<option value="">Ikke angivet</option>' +
-    cfg.types.map(t => `<option value="${t.value}">${t.value}</option>`).join('');
-  addTraitsWrap.innerHTML = cfg.traits.map(t =>
+    group('Blomster og planter', SECTION_CONFIG.plantebed.types) +
+    group('Krydderurter og afgrøder', SECTION_CONFIG.kokkenhave.types);
+  addTraitsWrap.innerHTML = ALL_TRAITS.map(t =>
     `<label><input type="checkbox" data-trait="${t.key}"><span>${t.label}</span></label>`
   ).join('');
 
@@ -2940,7 +2835,7 @@ function closeAddModal() {
 }
 
 document.querySelectorAll('.add-plant-btn').forEach(btn => {
-  btn.addEventListener('click', () => openAddModal(btn.dataset.section));
+  btn.addEventListener('click', () => openAddModal());
 });
 document.getElementById('addBackdrop').addEventListener('click', closeAddModal);
 document.getElementById('addClose').addEventListener('click', closeAddModal);
@@ -2969,7 +2864,7 @@ function readAndResizeImage(file) {
 
 addForm.addEventListener('submit', async e => {
   e.preventDefault();
-  const section = currentAddSection;
+  const section = sectionForType(document.getElementById('addType').value);
   const cfg = SECTION_CONFIG[section];
 
   const name = document.getElementById('addName').value.trim();
@@ -3027,9 +2922,9 @@ addForm.addEventListener('submit', async e => {
   closeAddModal();
 });
 
-document.querySelectorAll('#kitchenGrid .card.custom, #plantGrid .card.custom').forEach(card => {
+document.querySelectorAll('#plantGrid .card.custom').forEach(card => {
   const removeBtn = card.querySelector('.remove-custom-btn');
-  const section = card.closest('#kitchenGrid') ? 'kokkenhave' : 'plantebed';
+  const section = card.dataset.section;
   removeBtn.addEventListener('click', () => removeCustomPlant(section, card.dataset.customId));
 });
 
@@ -3215,11 +3110,11 @@ function collectGoremaalData() {
   const noFertilize = [];
   const prune = Array.from({ length: 12 }, () => []);
   const cuttings = Array.from({ length: 12 }, () => []);
-  document.querySelectorAll('#plantGrid .card, #kitchenGrid .card').forEach(card => {
+  document.querySelectorAll('#plantGrid .card').forEach(card => {
     const nameEl = card.querySelector('.plant-name');
     if (!nameEl) return;
     const name = nameEl.textContent.trim();
-    const listLabel = card.closest('#kitchenGrid') ? 'Køkkenhaven' : 'Plantebed';
+    const listLabel = card.dataset.type || 'Plante';
     // Hver post husker sit plantekort og sin opgave, så et klik kan åbne
     // plantevejledningen med det rigtige afsnit fremhævet.
     const latinEl = card.querySelector('.latin');
@@ -3276,6 +3171,12 @@ function renderGoremaalForMonth(monthIdx) {
   const monthNameEl = document.getElementById('goremaalMonthName');
   if (monthNameEl) monthNameEl.textContent = GOREMAAL_MONTHS_FULL[monthIdx];
 }
+
+// Overskrifterne bruger de samme ikoner som afsnittene i plantevejledningen.
+document.querySelectorAll('.goremaal-col-title[data-icon]').forEach(title => {
+  const icon = GUIDE_ICONS[title.dataset.icon];
+  if (icon) title.insertAdjacentHTML('afterbegin', `<span class="goremaal-col-icon">${icon}</span>`);
+});
 
 // Klik (eller Enter) på et gøremål åbner plantevejledningen med opgaven fremhævet.
 function openGoremaalItem(itemEl) {
