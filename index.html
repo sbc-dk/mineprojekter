@@ -93,6 +93,7 @@
   /* Main navigation */
   .mainnav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 0.6rem;
     padding: 0.75rem 1.5rem 1.5rem;
@@ -116,6 +117,7 @@
     background: #fff;
     color: var(--dusk);
     cursor: pointer;
+    white-space: nowrap;
     transition: background 0.14s, color 0.14s, border-color 0.14s, box-shadow 0.14s;
   }
 
@@ -1169,6 +1171,21 @@
   .goremaal-item-tag { font-size: 0.66rem; color: var(--dusk); background: var(--mist); border-radius: 10px; padding: 0.15rem 0.55rem; white-space: nowrap; }
   .goremaal-note { font-size: 0.8rem; color: var(--dusk); margin-bottom: 0.75rem; line-height: 1.5; }
   .goremaal-note-after { margin: 0.9rem 0 0; }
+  /* Hjemme: altanbede */
+  .home-beds { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .home-bed { background: #fff; border: 1px solid rgba(125,148,120,0.2); border-radius: 16px; padding: 1.2rem 1.3rem; box-shadow: 0 2px 14px rgba(72,66,58,0.06); }
+  .home-bed-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; }
+  .home-bed-head .bed-dot { width: 12px; height: 12px; }
+  .home-bed-name { font-size: 1.1rem; font-weight: 600; }
+  .home-bed-meta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--sage-deep); font-weight: 500; margin-bottom: 0.6rem; }
+  .home-bed-meta-icon { width: 16px; height: 16px; display: flex; color: var(--sage); }
+  .home-bed-meta-icon svg { width: 100%; height: 100%; }
+  .home-bed-tip { font-size: 0.8rem; color: var(--dusk); line-height: 1.5; margin-bottom: 0.9rem; }
+  .home-bed-ideas-title { font-size: 0.76rem; color: var(--dusk); margin: 0.6rem 0 0.5rem; }
+  .home-bed-item { cursor: pointer; transition: border-color 0.14s, box-shadow 0.14s; }
+  .home-bed-item:hover { border-color: var(--sage); box-shadow: 0 4px 14px rgba(56,50,42,0.08); }
+  .home-bed .goremaal-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .home-bed .goremaal-item { margin-bottom: 0; }
   .goremaal-empty { font-size: 0.85rem; color: var(--dusk); font-style: italic; padding: 0.5rem 0; }
 
   /* Mobile optimization */
@@ -1231,12 +1248,16 @@
 
 <nav class="mainnav" id="mainNav">
   <button class="mainnav-btn active" data-view="view-plantebed">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9.3C9.4 7.6 9.4 3.6 12 2.4C14.6 3.6 14.6 7.6 12 9.3Z"/><path d="M12 9.3C9.4 7.6 9.4 3.6 12 2.4C14.6 3.6 14.6 7.6 12 9.3Z" transform="rotate(72 12 12)"/><path d="M12 9.3C9.4 7.6 9.4 3.6 12 2.4C14.6 3.6 14.6 7.6 12 9.3Z" transform="rotate(144 12 12)"/><path d="M12 9.3C9.4 7.6 9.4 3.6 12 2.4C14.6 3.6 14.6 7.6 12 9.3Z" transform="rotate(216 12 12)"/><path d="M12 9.3C9.4 7.6 9.4 3.6 12 2.4C14.6 3.6 14.6 7.6 12 9.3Z" transform="rotate(288 12 12)"/><circle cx="12" cy="12" r="1.9"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9.8C8.7 8.9 8.4 3.2 12 3.2C15.6 3.2 15.3 8.9 12 9.8Z"/><path d="M12 9.8C8.7 8.9 8.4 3.2 12 3.2C15.6 3.2 15.3 8.9 12 9.8Z" transform="rotate(72 12 12)"/><path d="M12 9.8C8.7 8.9 8.4 3.2 12 3.2C15.6 3.2 15.3 8.9 12 9.8Z" transform="rotate(144 12 12)"/><path d="M12 9.8C8.7 8.9 8.4 3.2 12 3.2C15.6 3.2 15.3 8.9 12 9.8Z" transform="rotate(216 12 12)"/><path d="M12 9.8C8.7 8.9 8.4 3.2 12 3.2C15.6 3.2 15.3 8.9 12 9.8Z" transform="rotate(288 12 12)"/><circle cx="12" cy="12" r="1.7"/></svg>
     Mine planter
   </button>
   <button class="mainnav-btn" data-view="view-grund">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.2"/><path d="M9 20v-5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5"/></svg>
     Min have
+  </button>
+  <button class="mainnav-btn" data-view="view-hjemme">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9v11h12V9"/><path d="M10 20v-5h4v5"/></svg>
+    Hjemme
   </button>
   <button class="mainnav-btn" data-view="view-goremaal">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01"/></svg>
@@ -1758,6 +1779,14 @@
 </main>
 </section>
 
+<section class="view" id="view-hjemme">
+<main>
+  <p class="section-title">Hjemme</p>
+  <p class="shopping-intro">Mine to små altanbede ved de franske altaner. Vælg "Køkkenet" eller "Kreastuen" under "Plantet i bed" i en plantevejledning for at sætte en plante i bedet.</p>
+  <div class="home-beds" id="homeBeds"></div>
+</main>
+</section>
+
 <section class="view" id="view-goremaal">
 <main>
   <p class="section-title">Gøremål i haven</p>
@@ -1821,7 +1850,7 @@
     <p class="guide-why" id="guideWhy"></p>
     <div class="guide-badge" id="guideBadge"></div>
     <div class="guide-info-grid" id="guideInfoGrid"></div>
-    <div class="guide-beds" id="guideBeds"></div>
+    <div class="guide-beds" id="guideBeds" data-section="beds"></div>
     <div class="guide-modal-body" id="guideBody"></div>
   </div>
 </div>
@@ -2676,6 +2705,8 @@ function openGuide(card, highlight) {
 
   const content = guideModal.querySelector('.guide-modal-content');
   content.scrollTop = 0;
+  // Feltet "Plantet i bed" genbruges, så en tidligere fremhævning skal fjernes
+  guideModal.querySelectorAll('.guide-highlight').forEach(el => el.classList.remove('guide-highlight'));
   if (highlight) {
     const target = guideModal.querySelector(`[data-section="${highlight}"], [data-kind="${highlight}"]`);
     if (target) {
@@ -2837,6 +2868,8 @@ const PLANT_BEDS = [
   { name: 'Vejbed',         fill: '#A1C097', border: '#6B9A5D' },
   { name: 'Børnenes bed',   fill: '#BFDCCF', border: '#5E9C84' },
   { name: 'Anneksbed',      fill: '#D9D3A0', border: '#9A9046' },
+  { name: 'Køkkenet',       fill: '#F2D9A6', border: '#C9962E' }, // altanbed, Hjemme
+  { name: 'Kreastuen',      fill: '#C9D2DB', border: '#7C8EA3' }, // altanbed, Hjemme
   { name: 'Krukke',         fill: '#C17A56', border: '#A6603F' },
 ];
 // Bede, der er skrevet fast ind i siden (vises på alle enheder).
@@ -2844,7 +2877,12 @@ const PLANT_BEDS = [
 const DEFAULT_BEDS = {
   "Cosmos bipinnatus 'Cupcakes Blush'": ['Solbed', 'Kantbedet', 'Vinduesbed'],
   "Anemone hupehensis / hybrida": ['Børnenes bed'],
-  "Fragaria × ananassa": ['Bærbed'],
+  "Fragaria × ananassa": ['Bærbed', 'Køkkenet'],
+  "Ocimum basilicum": ['Køkkenet'],
+  "Salvia rosmarinus": ['Køkkenet'],
+  "Thymus vulgaris": ['Køkkenet'],
+  "Tulipa": ['Køkkenet'],
+  "Papaver orientale": ['Køkkenet'],
   "Clematis montana 'Rubens'": ['Klematis'],
   "Verbena bonariensis 'Lollipop'": ['Kantbedet'],
   "Geum chiloense 'Mai Tai'": ['Børnenes bed'],
@@ -2929,11 +2967,75 @@ function renderGuideBeds(card) {
       if (plantedMap[key]) { delete plantedMap[key]; savePlanted(plantedMap); }
       btn.classList.toggle('active', list.has(btn.dataset.bed));
       renderCardBeds(card);
+      renderHomeBeds();
     });
   });
 }
 
 document.querySelectorAll('#plantGrid .card').forEach(renderCardBeds);
+
+// --- Hjemme: de to små altanbede ved de franske altaner ---
+const HOME_BEDS = [
+  { name: 'Køkkenet', meta: ['Fransk altan', 'Solbed', 'Sydvestvendt'], icon: 'sun',
+    tip: 'Får eftermiddags- og aftensol. Altankasser tørrer hurtigt ud i sol og vind, så vand dagligt i varme perioder - gerne om aftenen.' },
+  { name: 'Kreastuen', meta: ['Fransk altan', 'Skyggebed', 'Nordøstvendt'], icon: 'shade',
+    tip: 'Får kun lidt morgensol. Vælg planter, der trives i skygge, og vand lidt mindre end i solbedet - jorden holder længere på fugten.' },
+];
+
+// Laveste højde i cm fra fx "30–60 cm" (bruges til forslag, der passer i en altankasse)
+function minHeightCm(card) {
+  const m = (card.dataset.height || '').match(/\d+/);
+  return m ? parseInt(m[0], 10) : Infinity;
+}
+
+function homeBedItem(card, note) {
+  const name = card.querySelector('.plant-name').textContent.trim();
+  return `<div class="goremaal-item home-bed-item" role="button" tabindex="0" data-key="${escapeHtml(plantKey(card))}"><span class="goremaal-item-name">${escapeHtml(name)}</span><span class="goremaal-item-tag">${escapeHtml(note)}</span></div>`;
+}
+
+function renderHomeBeds() {
+  const wrap = document.getElementById('homeBeds');
+  if (!wrap) return;
+  const cards = [...document.querySelectorAll('#plantGrid .card')];
+  const nameOf = c => c.querySelector('.plant-name').textContent.trim();
+  wrap.innerHTML = HOME_BEDS.map(bed => {
+    const info = PLANT_BEDS.find(b => b.name === bed.name);
+    const plants = cards.filter(c => bedsFor(plantKey(c)).includes(bed.name))
+      .sort((a, b) => nameOf(a).localeCompare(nameOf(b), 'da'));
+    let list = plants.map(c => homeBedItem(c, c.dataset.type || 'Plante')).join('');
+    if (!plants.length) {
+      list = '<p class="goremaal-empty">Ingen planter endnu. Vælg "' + bed.name + '" under "Plantet i bed" i en plantevejledning.</p>';
+      if (bed.icon === 'shade') {
+        const ideas = cards.filter(c => ['Halvskygge/skygge', 'Skygge'].includes(c.dataset.sun) && minHeightCm(c) <= 40)
+          .sort((a, b) => nameOf(a).localeCompare(nameOf(b), 'da'));
+        if (ideas.length) {
+          list += '<p class="home-bed-ideas-title">Forslag fra dine planter, der tåler skygge og er lave nok til en altankasse:</p>' +
+            ideas.map(c => homeBedItem(c, 'Forslag')).join('');
+        }
+      }
+    }
+    return `<div class="home-bed">
+      <div class="home-bed-head">${info ? bedDot(info) : ''}<span class="home-bed-name">${bed.name}</span></div>
+      <div class="home-bed-meta"><span class="home-bed-meta-icon">${GUIDE_ICONS[bed.icon]}</span>${bed.meta.join(' · ')}</div>
+      <p class="home-bed-tip">${bed.tip}</p>
+      <div class="goremaal-list">${list}</div>
+    </div>`;
+  }).join('');
+}
+
+function openHomeBedItem(el) {
+  const card = [...document.querySelectorAll('#plantGrid .card')].find(c => plantKey(c) === el.dataset.key);
+  if (card) openGuide(card, 'beds');
+}
+document.getElementById('homeBeds').addEventListener('click', e => {
+  const item = e.target.closest('.home-bed-item');
+  if (item) openHomeBedItem(item);
+});
+document.getElementById('homeBeds').addEventListener('keydown', e => {
+  const item = e.target.closest('.home-bed-item');
+  if (item && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openHomeBedItem(item); }
+});
+renderHomeBeds();
 
 // --- Shopping list tracker ---
 const SHOPPING_KEY = 'snedkerkrogen_indkobsliste';
