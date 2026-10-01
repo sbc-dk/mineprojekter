@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
   :root {
     --sage:      #7E9468;
@@ -555,7 +555,7 @@
     padding: 1.5rem;
     box-shadow: 0 2px 14px rgba(72,66,58,0.06);
   }
-  .plot-plan-wrap { padding: 0.9rem; }
+  .plot-plan-wrap { padding: 0.9rem; background: #FBF8F3; }
   .plot-main, .plot-facts { display: flex; flex-direction: column; gap: 1rem; }
   .plot-main { min-width: 0; }
   .plot-beds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); column-gap: 1.5rem; }
@@ -1685,97 +1685,100 @@
   <div class="plot-main">
   <div class="plot-plan-wrap">
     <svg class="plot-plan-svg" viewBox="-6.3 -7.7 57.3 34.7" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,0 46.3,-6.9 50.2,17.2 -5.4,26.2" fill="var(--sage-light)" fill-opacity="0.55" stroke="var(--sage)" stroke-opacity="0.7" stroke-width="0.18" stroke-dasharray="0.8 0.6"/>
-
-      <!-- Træer, bede, hyldeblomst og småbygninger - tegnet efter Simones skitse -->
+      <!-- Haveskitse i illustreret stil - placeringerne er uændrede -->
+      <polygon points="0,0 46.3,-6.9 50.2,17.2 -5.4,26.2" fill="#E4EDE6" stroke="#3A3F3B" stroke-width="0.1" stroke-linejoin="round"/>
+      <text x="-5.6" y="-5.6" text-anchor="start" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.9" font-weight="600" fill="#B8404C">Haveskitse</text>
       <g class="plot-trees">
-      <path d="M0.9 0.9 C1.25 0.45 1.63 0.72 1.8 1.3 C1.97 1.88 1.82 3.2 1.9 4.4 C1.98 5.6 2.2 7.42 2.3 8.5 C2.4 9.58 2.67 10.23 2.5 10.9 C2.33 11.57 1.67 11.95 1.3 12.5 C0.93 13.05 0.68 13.75 0.3 14.2 C-0.08 14.65 -0.52 15.08 -1 15.2 C-1.48 15.32 -2.43 15.52 -2.6 14.9 C-2.77 14.28 -2.23 12.65 -2 11.5 C-1.77 10.35 -1.48 9.25 -1.2 8 C-0.92 6.75 -0.65 5.18 -0.3 4 C0.05 2.82 0.55 1.35 0.9 0.9 Z" fill="#5F7548" fill-opacity="0.85" stroke="#4D6139" stroke-width="0.18" stroke-linejoin="round"/>
-      <path d="M-2.9 16.2 C-2.18 15.42 -0.58 16.03 0.3 16.3 C1.18 16.57 1.88 17.1 2.4 17.8 C2.92 18.5 3.23 19.57 3.4 20.5 C3.57 21.43 3.53 22.75 3.4 23.4 C3.27 24.05 3.25 24.13 2.6 24.4 C1.95 24.67 0.63 24.8 -0.5 25 C-1.63 25.2 -3.62 26.27 -4.2 25.6 C-4.78 24.93 -4.22 22.57 -4 21 C-3.78 19.43 -3.62 16.98 -2.9 16.2 Z" fill="#A1C097" fill-opacity="0.85" stroke="#6B9A5D" stroke-width="0.18" stroke-linejoin="round"/>
-      <circle cx="-2.0" cy="18.0" r="1.3" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/><circle cx="0.6" cy="18.3" r="1.2" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/><circle cx="-1.4" cy="21.2" r="1.4" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/><circle cx="1.4" cy="21.0" r="1.2" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/><circle cx="-2.8" cy="23.8" r="1.1" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/><circle cx="0.3" cy="23.4" r="1.2" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/><circle cx="2.2" cy="23.0" r="0.9" fill="#8FB484" stroke="#6B9A5D" stroke-width="0.14"/>
-      <circle cx="5.2" cy="4.0" r="3.3" fill="#A1C097" stroke="#6B9A5D" stroke-width="0.14"/>
-      <circle cx="3.7" cy="2.7" r="1.5" fill="#8FB484" stroke="#7FA66F" stroke-width="0.14"/><circle cx="6.6" cy="2.6" r="1.5" fill="#8FB484" stroke="#7FA66F" stroke-width="0.14"/><circle cx="3.3" cy="5.2" r="1.4" fill="#8FB484" stroke="#7FA66F" stroke-width="0.14"/><circle cx="7.0" cy="5.3" r="1.4" fill="#8FB484" stroke="#7FA66F" stroke-width="0.14"/><circle cx="5.2" cy="6.3" r="1.3" fill="#8FB484" stroke="#7FA66F" stroke-width="0.14"/><circle cx="5.2" cy="1.9" r="1.2" fill="#8FB484" stroke="#7FA66F" stroke-width="0.14"/>
-      <circle cx="41.2" cy="-4.6" r="1.0" fill="#BFD5B7" stroke="#7FA66F" stroke-width="0.14"/><circle cx="42.9" cy="-5.1" r="1.05" fill="#BFD5B7" stroke="#7FA66F" stroke-width="0.14"/><circle cx="44.6" cy="-5.6" r="0.95" fill="#BFD5B7" stroke="#7FA66F" stroke-width="0.14"/>
-      <path d="M46.87 3.4 C47.11 3.37 47.43 3.32 47.66 4 C47.89 4.68 48.04 6.33 48.23 7.5 C48.42 8.67 48.61 9.82 48.8 11 C48.99 12.18 49.35 13.88 49.38 14.6 C49.41 15.32 49.25 15.37 48.99 15.3 C48.73 15.23 48.11 15 47.81 14.2 C47.52 13.4 47.43 11.78 47.22 10.5 C47.01 9.22 46.74 7.55 46.57 6.5 C46.4 5.45 46.15 4.72 46.2 4.2 C46.25 3.68 46.63 3.43 46.87 3.4 Z" fill="#A1C097" fill-opacity="0.85" stroke="#6B9A5D" stroke-width="0.18" stroke-linejoin="round"/>
-      <circle cx="47.08" cy="5.0" r="0.8" fill="#8FB484" stroke="none" stroke-width="0.14"/><circle cx="47.5" cy="7.6" r="0.85" fill="#8FB484" stroke="none" stroke-width="0.14"/><circle cx="47.93" cy="10.3" r="0.85" fill="#8FB484" stroke="none" stroke-width="0.14"/><circle cx="48.35" cy="12.9" r="0.8" fill="#8FB484" stroke="none" stroke-width="0.14"/>
+      <path d="M0.9 0.9 C1.25 0.45 1.63 0.72 1.8 1.3 C1.97 1.88 1.82 3.2 1.9 4.4 C1.98 5.6 2.2 7.42 2.3 8.5 C2.4 9.58 2.67 10.23 2.5 10.9 C2.33 11.57 1.67 11.95 1.3 12.5 C0.93 13.05 0.68 13.75 0.3 14.2 C-0.08 14.65 -0.52 15.08 -1 15.2 C-1.48 15.32 -2.43 15.52 -2.6 14.9 C-2.77 14.28 -2.23 12.65 -2 11.5 C-1.77 10.35 -1.48 9.25 -1.2 8 C-0.92 6.75 -0.65 5.18 -0.3 4 C0.05 2.82 0.55 1.35 0.9 0.9 Z" fill="#3F8B50"/>
+      <circle cx="0.9" cy="2.3" r="0.55" fill="#52A062"/>
+      <circle cx="1.1" cy="4.6" r="0.55" fill="#52A062"/>
+      <circle cx="0.6" cy="6.8" r="0.55" fill="#52A062"/>
+      <circle cx="1.0" cy="9.0" r="0.55" fill="#52A062"/>
+      <circle cx="0.3" cy="11.2" r="0.55" fill="#52A062"/>
+      <circle cx="-0.6" cy="13.4" r="0.55" fill="#52A062"/>
+      <circle cx="-0.4" cy="8.0" r="0.55" fill="#52A062"/>
+      <circle cx="0.0" cy="5.6" r="0.55" fill="#52A062"/>
+      <path d="M-2.9 16.2 C-2.18 15.42 -0.58 16.03 0.3 16.3 C1.18 16.57 1.88 17.1 2.4 17.8 C2.92 18.5 3.23 19.57 3.4 20.5 C3.57 21.43 3.53 22.75 3.4 23.4 C3.27 24.05 3.25 24.13 2.6 24.4 C1.95 24.67 0.63 24.8 -0.5 25 C-1.63 25.2 -3.62 26.27 -4.2 25.6 C-4.78 24.93 -4.22 22.57 -4 21 C-3.78 19.43 -3.62 16.98 -2.9 16.2 Z" fill="#7C9C5E"/>
+      <path d="M-0.91 18 Q-0.59 18.68 -1.32 18.85 Q-1.65 19.52 -2.24 19.06 Q-2.97 19.22 -2.98 18.47 Q-3.56 18 -2.98 17.53 Q-2.97 16.78 -2.24 16.94 Q-1.65 16.48 -1.32 17.15 Q-0.59 17.32 -0.91 18 Z" fill="#5F8249"/>
+      <path d="M1.55 18.64 Q1.61 19.33 0.92 19.26 Q0.42 19.73 0.05 19.15 Q-0.63 19.05 -0.4 18.4 Q-0.75 17.81 -0.1 17.58 Q0.14 16.93 0.73 17.3 Q1.38 17.09 1.46 17.77 Q2.03 18.16 1.55 18.64 Z" fill="#5F8249"/>
+      <path d="M-0.5 21.96 Q-0.71 22.73 -1.43 22.38 Q-2.17 22.69 -2.34 21.91 Q-3.05 21.53 -2.54 20.91 Q-2.69 20.12 -1.88 20.13 Q-1.36 19.52 -0.86 20.15 Q-0.06 20.19 -0.25 20.97 Q0.23 21.61 -0.5 21.96 Z" fill="#5F8249"/>
+      <path d="M1.9 21.87 Q1.51 22.44 1.03 21.94 Q0.34 21.98 0.44 21.3 Q-0.02 20.79 0.57 20.43 Q0.68 19.75 1.32 19.99 Q1.93 19.66 2.14 20.31 Q2.78 20.58 2.4 21.15 Q2.59 21.81 1.9 21.87 Z" fill="#5F8249"/>
+      <path d="M-2.64 24.71 Q-3.16 25.07 -3.41 24.49 Q-4.02 24.31 -3.72 23.75 Q-3.96 23.17 -3.34 23.05 Q-3.03 22.5 -2.55 22.91 Q-1.93 22.81 -1.95 23.44 Q-1.48 23.87 -1.99 24.24 Q-2.03 24.87 -2.64 24.71 Z" fill="#5F8249"/>
+      <path d="M0.12 24.39 Q-0.54 24.57 -0.59 23.88 Q-1.14 23.47 -0.63 23.01 Q-0.65 22.32 0.03 22.43 Q0.55 21.98 0.89 22.58 Q1.56 22.71 1.31 23.35 Q1.63 23.96 0.97 24.16 Q0.69 24.79 0.12 24.39 Z" fill="#5F8249"/>
+      <path d="M1.82 23.65 Q1.31 23.61 1.45 23.11 Q1.17 22.68 1.65 22.49 Q1.81 21.99 2.26 22.25 Q2.74 22.06 2.82 22.57 Q3.27 22.84 2.92 23.22 Q2.99 23.73 2.48 23.7 Q2.12 24.08 1.82 23.65 Z" fill="#5F8249"/>
+      <path d="M7.93 4.48 Q8.63 5.98 6.98 6.12 Q6.55 7.72 5.2 6.77 Q3.85 7.72 3.42 6.12 Q1.77 5.98 2.47 4.48 Q1.3 3.31 2.8 2.61 Q2.65 0.97 4.25 1.4 Q5.2 0.04 6.15 1.4 Q7.75 0.97 7.6 2.61 Q9.1 3.31 7.93 4.48 Z" fill="#5D7F47"/>
+      <path d="M42.04 -4.6 Q42.28 -4.08 41.72 -3.94 Q41.47 -3.43 41.01 -3.78 Q40.45 -3.66 40.44 -4.24 Q40 -4.6 40.44 -4.96 Q40.45 -5.54 41.01 -5.42 Q41.47 -5.77 41.72 -5.26 Q42.28 -5.12 42.04 -4.6 Z" fill="#98AF5F"/>
+      <path d="M43.7 -4.73 Q43.7 -4.12 43.11 -4.24 Q42.63 -3.87 42.36 -4.4 Q41.77 -4.54 42.02 -5.09 Q41.76 -5.63 42.34 -5.78 Q42.6 -6.32 43.09 -5.96 Q43.67 -6.09 43.69 -5.49 Q44.16 -5.12 43.7 -4.73 Z" fill="#98AF5F"/>
+      <path d="M45.11 -4.99 Q44.88 -4.5 44.44 -4.82 Q43.91 -4.69 43.89 -5.24 Q43.46 -5.57 43.87 -5.93 Q43.87 -6.47 44.4 -6.37 Q44.83 -6.72 45.08 -6.24 Q45.61 -6.12 45.4 -5.62 Q45.64 -5.13 45.11 -4.99 Z" fill="#98AF5F"/>
+      <path d="M46.87 3.4 C47.11 3.37 47.43 3.32 47.66 4 C47.89 4.68 48.04 6.33 48.23 7.5 C48.42 8.67 48.61 9.82 48.8 11 C48.99 12.18 49.35 13.88 49.38 14.6 C49.41 15.32 49.25 15.37 48.99 15.3 C48.73 15.23 48.11 15 47.81 14.2 C47.52 13.4 47.43 11.78 47.22 10.5 C47.01 9.22 46.74 7.55 46.57 6.5 C46.4 5.45 46.15 4.72 46.2 4.2 C46.25 3.68 46.63 3.43 46.87 3.4 Z" fill="#3F8B50"/>
+      <circle cx="47.08" cy="5.0" r="0.6" fill="#52A062"/>
+      <circle cx="47.5" cy="7.6" r="0.6" fill="#52A062"/>
+      <circle cx="47.93" cy="10.3" r="0.6" fill="#52A062"/>
+      <circle cx="48.35" cy="12.9" r="0.6" fill="#52A062"/>
       </g>
-      <defs><pattern id="deckPlanks" width="0.45" height="0.45" patternUnits="userSpaceOnUse"><rect width="0.45" height="0.45" fill="#E8DECD"/><path d="M0 0.44H0.45" stroke="#D3C5AE" stroke-width="0.05"/></pattern></defs>
-      <polygon points="24.47,5.17 26.4,5.17 26.4,13.39 27.29,13.39 27.29,15.52 24.47,15.52" fill="url(#deckPlanks)" stroke="#B8A68A" stroke-width="0.16" stroke-linejoin="round"/>
-      <polygon points="33.2,1.3 34.8,1.3 34.8,5.3 32.4,5.3 32.4,3.3 33.2,3.3" fill="url(#deckPlanks)" stroke="#B8A68A" stroke-width="0.16" stroke-linejoin="round"/>
+      <polygon points="24.47,5.17 26.4,5.17 26.4,13.39 27.29,13.39 27.29,15.52 24.47,15.52" fill="#fff" stroke="#3A3F3B" stroke-width="0.12" stroke-linejoin="round"/>
+      <path d="M24.67 5.5L26.23 5.52" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.61 6.05L26.09 6.04" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.6 6.6L26.1 6.55" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.7 7.15L26.26 7.11" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.7 7.7L25.99 7.66" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.65 8.25L26.06 8.29" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.73 8.8L26.14 8.85" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.6 9.35L25.98 9.33" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.63 9.9L26.24 9.88" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.79 10.45L26.22 10.46" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.75 11L26.15 11" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.61 11.55L26.26 11.52" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.76 12.1L26.13 12.08" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.74 12.65L26.12 12.63" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.79 13.2L26.04 13.17" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.73 13.72L26.99 13.76" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.77 14.27L27.07 14.32" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M24.62 14.82L27.02 14.85" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/>
+      <polygon points="33.2,1.3 34.8,1.3 34.8,5.3 32.4,5.3 32.4,3.3 33.2,3.3" fill="#fff" stroke="#3A3F3B" stroke-width="0.12" stroke-linejoin="round"/>
+      <path d="M33.36 1.6L34.51 1.55" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M33.49 2.1L34.41 2.11" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M33.54 2.6L34.57 2.62" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M33.47 3.1L34.48 3.1" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M32.73 3.6L34.35 3.6" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M32.69 4.1L34.66 4.12" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M32.68 4.6L34.33 4.63" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/><path d="M32.59 5.1L34.54 5.12" stroke="#3A3F3B" stroke-width="0.05" stroke-linecap="round"/>
       <g class="plot-beds">
-      <path d="M9.6 -0.8 C9.53 -0.33 10.93 0.72 11.6 1.5 C12.27 2.28 12.87 3.38 13.6 3.9 C14.33 4.42 15.22 4.58 16 4.6 C16.78 4.62 17.53 4.53 18.3 4 C19.07 3.47 19.87 2.38 20.6 1.4 C21.33 0.42 22.88 -1.27 22.7 -1.9 C22.52 -2.53 20.7 -2.42 19.5 -2.4 C18.3 -2.38 16.75 -1.98 15.5 -1.8 C14.25 -1.62 12.98 -1.47 12 -1.3 C11.02 -1.13 9.67 -1.27 9.6 -0.8 Z" fill="#EAC88F" fill-opacity="0.9" stroke="#C98A1E" stroke-width="0.18" stroke-linejoin="round"/>
-      <path d="M15.4 -1.7 C16.08 -1.8 18.07 -2.08 19.5 -2.3 C20.93 -2.52 22.48 -2.77 24 -3 C25.52 -3.23 27.83 -3.58 28.6 -3.7" fill="none" stroke="#E1A6A2" stroke-width="0.9" stroke-linecap="round"/>
-      <path d="M33.4 -4.3 C33.75 -4.35 34.83 -4.5 35.5 -4.6 C36.17 -4.7 37.08 -4.85 37.4 -4.9" fill="none" stroke="#E1A6A2" stroke-width="0.9" stroke-linecap="round"/>
-      <path d="M16.2 22.3 C15.9 21.52 17 18.92 17.4 17.2 C17.8 15.48 18.2 13.13 18.6 12 C19 10.87 19.42 10.52 19.8 10.4 C20.18 10.28 20.63 10.58 20.9 11.3 C21.17 12.02 21 13.57 21.4 14.7 C21.8 15.83 22.63 17.12 23.3 18.1 C23.97 19.08 25.53 20.07 25.4 20.6 C25.27 21.13 23.53 21.08 22.5 21.3 C21.47 21.52 20.25 21.73 19.2 21.9 C18.15 22.07 16.5 23.08 16.2 22.3 Z" fill="#BAC3CC" fill-opacity="0.9" stroke="#6F8299" stroke-width="0.18" stroke-linejoin="round"/>
-      <rect x="29.200000000000003" y="16.849999999999998" width="7.8" height="1.7" rx="0.85" transform="rotate(-9 33.1 17.7)" fill="#E2B2B0" fill-opacity="0.9" stroke="#B85C58" stroke-width="0.18"/>
-      <path d="M39.5 18.6 C39.27 18.45 40.48 17.65 41.1 17.3 C41.72 16.95 42.3 16.68 43.2 16.5 C44.1 16.32 45.53 16.22 46.5 16.2 C47.47 16.18 48.55 16.27 49 16.4 C49.45 16.53 49.7 16.8 49.2 17 C48.7 17.2 47.12 17.4 46 17.6 C44.88 17.8 43.58 18.03 42.5 18.2 C41.42 18.37 39.73 18.75 39.5 18.6 Z" fill="#CDB9D4" fill-opacity="0.9" stroke="#8E6A9E" stroke-width="0.18" stroke-linejoin="round"/>
-      <rect x="22.97" y="7.6" width="1.4" height="7.92" rx="0.7" fill="#E4C399" fill-opacity="0.9" stroke="#B87A2E" stroke-width="0.18"/>
-      <rect x="39.33" y="5.08" width="5.3" height="1.8" rx="0.6" transform="rotate(-9.2 39.33 5.98)" fill="#ADC1DD" fill-opacity="0.9" stroke="#4C74B0" stroke-width="0.18"/>
-      <rect x="39.2" y="10.1" width="1.0" height="3.1" rx="0.5" fill="#ADC1DD" fill-opacity="0.9" stroke="#4C74B0" stroke-width="0.18"/>
-      <rect x="27.29" y="13.7" width="5.0" height="1.45" rx="0.5" fill="#C3DDE6" fill-opacity="0.95" stroke="#5C8FA8" stroke-width="0.18"/>
-      <ellipse cx="8.3" cy="17.0" rx="1.0" ry="0.75" transform="rotate(10 8.3 17.0)" fill="#BFDCCF" fill-opacity="0.95" stroke="#5E9C84" stroke-width="0.18"/>
-      <rect x="39.1" y="0" width="1.0" height="4.0" rx="0.4" fill="#D9D3A0" fill-opacity="0.95" stroke="#9A9046" stroke-width="0.18"/>
+      <path d="M9.6 -0.8 C9.53 -0.33 10.93 0.72 11.6 1.5 C12.27 2.28 12.87 3.38 13.6 3.9 C14.33 4.42 15.22 4.58 16 4.6 C16.78 4.62 17.53 4.53 18.3 4 C19.07 3.47 19.87 2.38 20.6 1.4 C21.33 0.42 22.88 -1.27 22.7 -1.9 C22.52 -2.53 20.7 -2.42 19.5 -2.4 C18.3 -2.38 16.75 -1.98 15.5 -1.8 C14.25 -1.62 12.98 -1.47 12 -1.3 C11.02 -1.13 9.67 -1.27 9.6 -0.8 Z" fill="#EBC874"/>
+      <path d="M15.4 -1.7 C16.08 -1.8 18.07 -2.08 19.5 -2.3 C20.93 -2.52 22.48 -2.77 24 -3 C25.52 -3.23 27.83 -3.58 28.6 -3.7" fill="none" stroke="#E08C9D" stroke-width="0.9" stroke-linecap="round"/>
+      <path d="M33.4 -4.3 C33.75 -4.35 34.83 -4.5 35.5 -4.6 C36.17 -4.7 37.08 -4.85 37.4 -4.9" fill="none" stroke="#E08C9D" stroke-width="0.9" stroke-linecap="round"/>
+      <path d="M16.2 22.3 C15.9 21.52 17 18.92 17.4 17.2 C17.8 15.48 18.2 13.13 18.6 12 C19 10.87 19.42 10.52 19.8 10.4 C20.18 10.28 20.63 10.58 20.9 11.3 C21.17 12.02 21 13.57 21.4 14.7 C21.8 15.83 22.63 17.12 23.3 18.1 C23.97 19.08 25.53 20.07 25.4 20.6 C25.27 21.13 23.53 21.08 22.5 21.3 C21.47 21.52 20.25 21.73 19.2 21.9 C18.15 22.07 16.5 23.08 16.2 22.3 Z" fill="#8FA4B9"/>
+      <rect x="29.2" y="16.85" width="7.8" height="1.7" rx="0.85" transform="rotate(-9 33.1 17.7)" fill="#D97389"/>
+      <path d="M39.5 18.6 C39.27 18.45 40.48 17.65 41.1 17.3 C41.72 16.95 42.3 16.68 43.2 16.5 C44.1 16.32 45.53 16.22 46.5 16.2 C47.47 16.18 48.55 16.27 49 16.4 C49.45 16.53 49.7 16.8 49.2 17 C48.7 17.2 47.12 17.4 46 17.6 C44.88 17.8 43.58 18.03 42.5 18.2 C41.42 18.37 39.73 18.75 39.5 18.6 Z" fill="#A88DC7"/>
+      <rect x="22.97" y="7.6" width="1.4" height="7.92" rx="0.7" fill="#DDA56B"/>
+      <rect x="39.33" y="5.08" width="5.3" height="1.8" rx="0.6" transform="rotate(-9.2 39.33 5.98)" fill="#7E9CCC"/>
+      <rect x="39.2" y="10.1" width="1.0" height="3.1" rx="0.5" fill="#7E9CCC"/>
+      <rect x="27.29" y="13.7" width="5.0" height="1.45" rx="0.5" fill="#9CC8D8"/>
+      <ellipse cx="8.3" cy="17.0" rx="1.0" ry="0.75" transform="rotate(10 8.3 17.0)" fill="#7FC0A4"/>
+      <rect x="39.1" y="0" width="1.0" height="4.0" rx="0.4" fill="#A9AA5B"/>
       </g>
-      <g class="plot-hylde"><circle cx="-2.2" cy="24.6" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/><circle cx="-0.4" cy="24.4" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/><circle cx="1.4" cy="24.1" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/><circle cx="3.2" cy="23.8" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/><circle cx="5.0" cy="23.6" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/><circle cx="38.6" cy="-4.5" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/><circle cx="40.0" cy="-4.2" r="0.6" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/></g>
-      <g class="plot-hylde"><ellipse cx="25.45" cy="3.6" rx="0.75" ry="1.5" fill="#EFDFC2" stroke="#C9A66B" stroke-width="0.14"/></g>
-      <rect x="9.90" y="18.10" width="4.2" height="4.2" rx="0.15" transform="rotate(10 12.0 20.2)" fill="var(--terracotta)" fill-opacity="0.85" stroke="var(--terracotta-deep)" stroke-width="0.25"/>
-      <rect x="15.30" y="14.30" width="1.8" height="1.8" rx="0.15" transform="rotate(8 16.2 15.2)" fill="var(--terracotta)" fill-opacity="0.85" stroke="var(--terracotta-deep)" stroke-width="0.25"/>
-      <rect x="29.80" y="-4.48" width="2.6" height="1.1" rx="0.15" transform="rotate(-8.48 31.1 -3.93)" fill="var(--terracotta)" fill-opacity="0.85" stroke="var(--terracotta-deep)" stroke-width="0.25"/>
-      <g class="plot-labels"><text x="1.0" y="9.6" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="#C4DDAE" font-weight="400" transform="rotate(-78.4 1.0 9.6)">Hegn-bedet</text><text x="-0.6" y="20.6" text-anchor="middle" dominant-baseline="middle" font-size="1.0" fill="#2F5226" font-weight="400">Skoven</text><text x="5.2" y="4.1" text-anchor="middle" dominant-baseline="middle" font-size="0.95" fill="#2F5226" font-weight="400">Egetræet</text><text x="42.9" y="-5.1" text-anchor="middle" dominant-baseline="middle" font-size="0.62" fill="#3F6A33" font-weight="400" transform="rotate(-8.5 42.9 -5.1)">Hasseltræer</text><text x="47.77" y="9.3" text-anchor="middle" dominant-baseline="middle" font-size="0.65" fill="#2F5226" font-weight="400" transform="rotate(80.8 47.77 9.3)">Vejbed</text><text x="16.1" y="1.4" text-anchor="middle" dominant-baseline="middle" font-size="0.95" fill="#7F560F" font-weight="400">Solbed</text><text x="22.0" y="-2.68" text-anchor="middle" dominant-baseline="middle" font-size="0.6" fill="#7A2F2A" font-weight="400" transform="rotate(-8.7 22.0 -2.68)">Klematis</text><text x="20.4" y="18.4" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="#34414F" font-weight="400">Skyggebed</text><text x="33.1" y="17.75" text-anchor="middle" dominant-baseline="middle" font-size="0.8" fill="#6E2E2B" font-weight="400" transform="rotate(-9 33.1 17.75)">Bærbed</text><text x="45.2" y="17.2" text-anchor="middle" dominant-baseline="middle" font-size="0.65" fill="#54385F" font-weight="400" transform="rotate(-9 45.2 17.2)">Hjørnebedet</text><text x="23.67" y="11.56" text-anchor="middle" dominant-baseline="middle" font-size="0.62" fill="#6A4312" font-weight="400" transform="rotate(-90 23.67 11.56)">Kantbedet</text><text x="41.95" y="5.56" text-anchor="middle" dominant-baseline="middle" font-size="0.62" fill="#274677" font-weight="400" transform="rotate(-9.2 41.95 5.56)">Gavlbedet</text><text x="29.79" y="14.45" text-anchor="middle" dominant-baseline="middle" font-size="0.52" fill="#2A5A6E" font-weight="400">Vinduesbed</text><text x="8.3" y="15.75" text-anchor="middle" dominant-baseline="middle" font-size="0.6" fill="#3F7A64" font-weight="400">Børnenes bed</text><text x="40.85" y="2.0" text-anchor="middle" dominant-baseline="middle" font-size="0.55" fill="#6B6530" font-weight="400" transform="rotate(90 40.85 2.0)">Anneksbed</text><text x="25.43" y="10.35" text-anchor="middle" dominant-baseline="middle" font-size="0.7" fill="#7A6A52" font-weight="400" transform="rotate(-90 25.43 10.35)">Terrasse</text><text x="33.6" y="4.35" text-anchor="middle" dominant-baseline="middle" font-size="0.5" fill="#7A6A52" font-weight="400">Terrasse</text><text x="12.0" y="20.25" text-anchor="middle" dominant-baseline="middle" font-size="0.8" fill="#fff" font-weight="400" transform="rotate(10 12.0 20.25)">Legehus</text><text x="16.2" y="13.6" text-anchor="middle" dominant-baseline="middle" font-size="0.65" fill="var(--soil)" font-weight="400">Sandkasse</text><text x="30.89" y="-5.36" text-anchor="middle" dominant-baseline="middle" font-size="0.7" fill="var(--soil)" font-weight="400" transform="rotate(-8.48 30.89 -5.36)">Brændeskur</text></g>
-
-      <polygon points="26.4,3.3 32.4,3.3 32.4,5.3 38.8,5.3 38.8,13.3 26.4,13.3" fill="var(--terracotta)" fill-opacity="0.85" stroke="var(--terracotta-deep)" stroke-width="0.25"/>
-      <polygon points="35.0,0.0 39.0,0.0 39.0,4.0 35.0,4.0" fill="var(--terracotta)" fill-opacity="0.85" stroke="var(--terracotta-deep)" stroke-width="0.25"/>
-
-      <circle cx="0" cy="0" r="0.3" fill="var(--sage)" fill-opacity="0.7"/>
-      <circle cx="46.3" cy="-6.9" r="0.3" fill="var(--sage)" fill-opacity="0.7"/>
-      <circle cx="50.2" cy="17.2" r="0.3" fill="var(--sage)" fill-opacity="0.7"/>
-      <circle cx="-5.4" cy="26.2" r="0.3" fill="var(--sage)" fill-opacity="0.7"/>
-
-      <!-- Grundens mål, diskret langs hver side -->
-      <text class="plot-measure" x="23.0" y="-4.45" transform="rotate(-8.5 23.0 -4.45)" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="var(--dusk)">44,7 m</text>
-      <text class="plot-measure" x="49.25" y="5.0" transform="rotate(80.8 49.25 5.0)" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="var(--dusk)">26,3 m</text>
-      <text class="plot-measure" x="22.56" y="22.69" transform="rotate(-9.2 22.56 22.69)" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="var(--dusk)">53,9 m</text>
-      <text class="plot-measure" x="-3.68" y="12.9" transform="rotate(-78.4 -3.68 12.9)" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="var(--dusk)">27,3 m</text>
-
-      <text x="32.3" y="9.3" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="#fff" font-weight="400">Sommerhus</text>
-
-      <text x="37" y="2.05" text-anchor="middle" dominant-baseline="middle" font-size="0.85" fill="#fff" font-weight="400">Anneks</text>
+      <g class="plot-hylde"><path d="M-1.68 24.6 Q-1.56 24.97 -1.94 25.05 Q-2.2 25.34 -2.46 25.05 Q-2.84 24.97 -2.72 24.6 Q-2.84 24.23 -2.46 24.15 Q-2.2 23.86 -1.94 24.15 Q-1.56 24.23 -1.68 24.6 Z" fill="#EEE2A4"/><path d="M0.05 24.66 Q-0.03 25.04 -0.4 24.92 Q-0.77 25.04 -0.85 24.66 Q-1.14 24.4 -0.85 24.14 Q-0.77 23.76 -0.4 23.88 Q-0.03 23.76 0.05 24.14 Q0.34 24.4 0.05 24.66 Z" fill="#EEE2A4"/><path d="M1.66 24.55 Q1.4 24.84 1.14 24.55 Q0.76 24.47 0.88 24.1 Q0.76 23.73 1.14 23.65 Q1.4 23.36 1.66 23.65 Q2.04 23.73 1.92 24.1 Q2.04 24.47 1.66 24.55 Z" fill="#EEE2A4"/><path d="M3.2 24.32 Q2.83 24.44 2.75 24.06 Q2.46 23.8 2.75 23.54 Q2.83 23.16 3.2 23.28 Q3.57 23.16 3.65 23.54 Q3.94 23.8 3.65 24.06 Q3.57 24.44 3.2 24.32 Z" fill="#EEE2A4"/><path d="M4.74 24.05 Q4.36 23.97 4.48 23.6 Q4.36 23.23 4.74 23.15 Q5 22.86 5.26 23.15 Q5.64 23.23 5.52 23.6 Q5.64 23.97 5.26 24.05 Q5 24.34 4.74 24.05 Z" fill="#EEE2A4"/><path d="M38.15 -4.24 Q37.86 -4.5 38.15 -4.76 Q38.23 -5.14 38.6 -5.02 Q38.97 -5.14 39.05 -4.76 Q39.34 -4.5 39.05 -4.24 Q38.97 -3.86 38.6 -3.98 Q38.23 -3.86 38.15 -4.24 Z" fill="#EEE2A4"/><path d="M39.48 -4.2 Q39.36 -4.57 39.74 -4.65 Q40 -4.94 40.26 -4.65 Q40.64 -4.57 40.52 -4.2 Q40.64 -3.83 40.26 -3.75 Q40 -3.46 39.74 -3.75 Q39.36 -3.83 39.48 -4.2 Z" fill="#EEE2A4"/><path d="M26.11 3.6 Q26.31 4.3 25.91 4.5 Q25.81 5.29 25.45 4.88 Q25.09 5.29 24.99 4.5 Q24.59 4.3 24.79 3.6 Q24.59 2.9 24.99 2.7 Q25.09 1.91 25.45 2.32 Q25.81 1.91 25.91 2.7 Q26.31 2.9 26.11 3.6 Z" fill="#EEE2A4"/></g>
+      <polygon points="26.4,3.3 32.4,3.3 32.4,5.3 38.8,5.3 38.8,13.3 26.4,13.3" fill="#fff" stroke="#3A3F3B" stroke-width="0.14" stroke-linejoin="round"/>
+      <polygon points="35.0,0.0 39.0,0.0 39.0,4.0 35.0,4.0" fill="#fff" stroke="#3A3F3B" stroke-width="0.14"/>
+      <rect x="9.90" y="18.10" width="4.2" height="4.2" transform="rotate(10 12.0 20.2)" fill="#fff" stroke="#3A3F3B" stroke-width="0.12"/>
+      <rect x="15.30" y="14.30" width="1.8" height="1.8" transform="rotate(8 16.2 15.2)" fill="#fff" stroke="#3A3F3B" stroke-width="0.12"/>
+      <rect x="29.80" y="-4.48" width="2.6" height="1.1" transform="rotate(-8.48 31.1 -3.93)" fill="#fff" stroke="#3A3F3B" stroke-width="0.12"/>
+      <g class="plot-labels"><text x="1.0" y="9.6" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.04" font-style="italic" font-weight="400" fill="#FFFFFF" transform="rotate(-78.4 1.0 9.6)">Hegn-bedet</text><text x="-0.6" y="20.6" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.26" font-style="italic" font-weight="400" fill="#FFFFFF">Skoven</text><text x="5.2" y="4.1" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.16" font-style="italic" font-weight="400" fill="#FFFFFF">Egetræet</text><text x="42.9" y="-5.1" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.75" font-style="italic" font-weight="400" fill="#33401F" transform="rotate(-8.5 42.9 -5.1)">Hasseltræer</text><text x="47.77" y="9.3" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.83" font-style="italic" font-weight="400" fill="#FFFFFF" transform="rotate(80.8 47.77 9.3)">Vejbed</text><text x="16.1" y="1.4" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.16" font-style="italic" font-weight="400" fill="#5E4410">Solbed</text><text x="22.0" y="-2.68" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.73" font-style="italic" font-weight="400" fill="#5E2230" transform="rotate(-8.7 22.0 -2.68)">Klematis</text><text x="20.4" y="18.4" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.04" font-style="italic" font-weight="400" fill="#23303D">Skyggebed</text><text x="33.1" y="17.75" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.99" font-style="italic" font-weight="400" fill="#FFFFFF" transform="rotate(-9 33.1 17.75)">Bærbed</text><text x="45.2" y="17.2" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.79" font-style="italic" font-weight="400" fill="#2E1F45" transform="rotate(-9 45.2 17.2)">Hjørnebedet</text><text x="23.67" y="11.56" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.75" font-style="italic" font-weight="400" fill="#4F2F0C" transform="rotate(-90 23.67 11.56)">Kantbedet</text><text x="41.95" y="5.56" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.77" font-style="italic" font-weight="400" fill="#1C3055" transform="rotate(-9.2 41.95 5.56)">Gavlbedet</text><text x="29.79" y="14.45" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.66" font-style="italic" font-weight="400" fill="#1F4452">Vinduesbed</text><text x="8.3" y="15.75" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.75" font-style="italic" font-weight="400" fill="#255A45">Børnenes bed</text><text x="40.85" y="2.0" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.68" font-style="italic" font-weight="400" fill="#4A4A1C" transform="rotate(90 40.85 2.0)">Anneksbed</text><text x="25.43" y="10.35" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.86" font-style="italic" font-weight="400" fill="#3A3F3B" stroke="#fff" stroke-width="0.28" stroke-linejoin="round" paint-order="stroke" transform="rotate(-90 25.43 10.35)">Terrasse</text><text x="33.6" y="4.35" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.61" font-style="italic" font-weight="400" fill="#3A3F3B" stroke="#fff" stroke-width="0.28" stroke-linejoin="round" paint-order="stroke">Terrasse</text><text x="32.3" y="9.3" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="1.1" font-style="italic" font-weight="400" fill="#3A3F3B">Sommerhus</text><text x="37" y="2.05" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.94" font-style="italic" font-weight="400" fill="#3A3F3B">Anneks</text><text x="12.0" y="20.25" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.94" font-style="italic" font-weight="400" fill="#3A3F3B" transform="rotate(10 12.0 20.25)">Legehus</text><text x="16.2" y="13.6" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.79" font-style="italic" font-weight="400" fill="#3A3F3B">Sandkasse</text><text x="30.89" y="-5.36" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.83" font-style="italic" font-weight="400" fill="#3A3F3B" transform="rotate(-8.48 30.89 -5.36)">Brændeskur</text></g>
+      <g class="plot-measures"><text x="23.0" y="-4.45" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.88" font-style="italic" font-weight="400" fill="#6E746F" transform="rotate(-8.5 23.0 -4.45)">44,7 m</text><text x="49.25" y="5.0" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.88" font-style="italic" font-weight="400" fill="#6E746F" transform="rotate(80.8 49.25 5.0)">26,3 m</text><text x="22.56" y="22.69" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.88" font-style="italic" font-weight="400" fill="#6E746F" transform="rotate(-9.2 22.56 22.69)">53,9 m</text><text x="-3.68" y="12.9" text-anchor="middle" dominant-baseline="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="0.88" font-style="italic" font-weight="400" fill="#6E746F" transform="rotate(-78.4 -3.68 12.9)">27,3 m</text></g>
     </svg>
   </div>
     <div class="plot-fact-card plot-beds-card">
       <p class="plot-fact-title">Bede</p>
       <div class="plot-beds-grid">
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EAC88F; border:1.5px solid #C98A1E;"></span> Solbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#BAC3CC; border:1.5px solid #6F8299;"></span> Skyggebed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#E2B2B0; border:1.5px solid #B85C58;"></span> Bærbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#E4C399; border:1.5px solid #B87A2E;"></span> Kantbedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#ADC1DD; border:1.5px solid #4C74B0;"></span> Gavlbedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#C3DDE6; border:1.5px solid #5C8FA8;"></span> Vinduesbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#CDB9D4; border:1.5px solid #8E6A9E;"></span> Hjørnebedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#BFDCCF; border:1.5px solid #5E9C84;"></span> Børnenes bed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#D9D3A0; border:1.5px solid #9A9046;"></span> Anneksbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#E1A6A2;"></span> Klematis</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EBC874; border:1.5px solid #A99053;"></span> Solbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#8FA4B9; border:1.5px solid #667685;"></span> Skyggebed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#D97389; border:1.5px solid #9C5262;"></span> Bærbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#DDA56B; border:1.5px solid #9F764D;"></span> Kantbedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#7E9CCC; border:1.5px solid #5A7092;"></span> Gavlbedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#9CC8D8; border:1.5px solid #70909B;"></span> Vinduesbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#A88DC7; border:1.5px solid #78658F;"></span> Hjørnebedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#7FC0A4; border:1.5px solid #5B8A76;"></span> Børnenes bed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#A9AA5B; border:1.5px solid #797A41;"></span> Anneksbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#E08C9D; border:1.5px solid #A16471;"></span> Klematis</span></div>
       </div>
     </div>
   </div>
   <aside class="plot-facts">
     <div class="plot-fact-card">
       <p class="plot-fact-title">På grunden</p>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:var(--terracotta);"></span> Sommerhus</span><strong>ca. 12,4 × 10 m</strong></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:var(--terracotta);"></span> Anneks</span><strong>ca. 4 × 4 m</strong></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:var(--terracotta);"></span> Legehus</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:var(--terracotta);"></span> Sandkasse</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:var(--terracotta);"></span> Brændeskur</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#E8DECD; border:1.5px solid #B8A68A;"></span> Terrasse</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch plot-plan-legend-swatch-line"></span> Grundskel</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#fff; border:1.5px solid #3A3F3B;"></span> Sommerhus</span><strong>ca. 12,4 × 10 m</strong></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#fff; border:1.5px solid #3A3F3B;"></span> Anneks</span><strong>ca. 4 × 4 m</strong></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#fff; border:1.5px solid #3A3F3B;"></span> Legehus</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#fff; border:1.5px solid #3A3F3B;"></span> Sandkasse</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#fff; border:1.5px solid #3A3F3B;"></span> Brændeskur</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#fff; border:1.5px solid #3A3F3B;"></span> Terrasse</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#E4EDE6; border:1.5px solid #3A3F3B;"></span> Grundskel</span></div>
     </div>
     <div class="plot-fact-card">
       <p class="plot-fact-title">Træer og buske</p>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#5F7548; border:1.5px solid #4D6139;"></span> Hegn-bedet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#A1C097; border:1.5px solid #6B9A5D;"></span> Egetræet</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#A1C097; border:1.5px solid #6B9A5D;"></span> Skoven</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#A1C097; border:1.5px solid #6B9A5D;"></span> Vejbed</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#BFD5B7; border:1.5px solid #7FA66F;"></span> Hasseltræer</span></div>
-      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EFDFC2; border:1.5px solid #C9A66B;"></span> Hyldeblomst-buske</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#3F8B50; border:1.5px solid #2D6439;"></span> Hegn-bedet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#5D7F47; border:1.5px solid #425B33;"></span> Egetræet</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#7C9C5E; border:1.5px solid #597043;"></span> Skoven</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#3F8B50; border:1.5px solid #2D6439;"></span> Vejbed</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#98AF5F; border:1.5px solid #6D7E44;"></span> Hasseltræer</span></div>
+      <div class="plot-fact-row"><span class="plot-plan-legend-item"><span class="plot-plan-legend-swatch" style="background:#EEE2A4; border:1.5px solid #ABA276;"></span> Hyldeblomst-buske</span></div>
     </div>
     <p class="plot-plan-note">Skitsen er en forenklet gengivelse ud fra opmålte sidelængder og luftfoto - ikke en officiel matrikeltegning. Bede, træer og småbygninger er tegnet efter din egen skitse og er ikke målt op. Sig til, hvis noget skal flyttes eller have en anden størrelse.</p>
   </aside>
@@ -2860,18 +2863,18 @@ const plantedMap = loadPlanted();
 // --- Bede: hvilke bede planten står i ---
 // Samme bede og farver som på skitsen under Grund. Gemmes i browseren pr. plante.
 const PLANT_BEDS = [
-  { name: 'Solbed',         fill: '#EAC88F', border: '#C98A1E' },
-  { name: 'Skyggebed',      fill: '#BAC3CC', border: '#6F8299' },
-  { name: 'Bærbed',         fill: '#E2B2B0', border: '#B85C58' },
-  { name: 'Kantbedet',      fill: '#E4C399', border: '#B87A2E' },
-  { name: 'Gavlbedet',      fill: '#ADC1DD', border: '#4C74B0' },
-  { name: 'Vinduesbed',     fill: '#C3DDE6', border: '#5C8FA8' },
-  { name: 'Hjørnebedet',    fill: '#CDB9D4', border: '#8E6A9E' },
-  { name: 'Klematis',       fill: '#E1A6A2', border: '#B85C58' },
-  { name: 'Hegn-bedet',     fill: '#5F7548', border: '#4D6139' },
-  { name: 'Vejbed',         fill: '#A1C097', border: '#6B9A5D' },
-  { name: 'Børnenes bed',   fill: '#BFDCCF', border: '#5E9C84' },
-  { name: 'Anneksbed',      fill: '#D9D3A0', border: '#9A9046' },
+  { name: 'Solbed',       fill: '#EBC874', border: '#A99053' },
+  { name: 'Skyggebed',    fill: '#8FA4B9', border: '#667685' },
+  { name: 'Bærbed',       fill: '#D97389', border: '#9C5262' },
+  { name: 'Kantbedet',    fill: '#DDA56B', border: '#9F764D' },
+  { name: 'Gavlbedet',    fill: '#7E9CCC', border: '#5A7092' },
+  { name: 'Vinduesbed',   fill: '#9CC8D8', border: '#70909B' },
+  { name: 'Hjørnebedet',  fill: '#A88DC7', border: '#78658F' },
+  { name: 'Klematis',     fill: '#E08C9D', border: '#A16471' },
+  { name: 'Hegn-bedet',   fill: '#3F8B50', border: '#2D6439' },
+  { name: 'Vejbed',       fill: '#3F8B50', border: '#2D6439' },
+  { name: 'Børnenes bed', fill: '#7FC0A4', border: '#5B8A76' },
+  { name: 'Anneksbed',    fill: '#A9AA5B', border: '#797A41' },
   { name: 'Køkkenet',       fill: '#F2D9A6', border: '#C9962E' }, // altanbed, Hjemme
   { name: 'Kreastuen',      fill: '#C9D2DB', border: '#7C8EA3' }, // altanbed, Hjemme
   { name: 'Krukke',         fill: '#C17A56', border: '#A6603F' },
